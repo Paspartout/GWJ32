@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/TowerSelection.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/PathSpawner.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/TowerSlot.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Tilesheet/towerDefense_tilesheet.png" type="Texture" id=5]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=6]
 
 [sub_resource type="TileSet" id=1]
 0/name = "towerDefense_tilesheet.png 0"
@@ -71,6 +72,8 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 43.2595, 106.192 )
+
+[sub_resource type="RectangleShape2D" id=4]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
@@ -202,5 +205,13 @@ position = Vector2( 204.456, 664.718 )
 position = Vector2( 152.456, 500.718 )
 
 [node name="Towers" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 695.792, 398.232 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 4 )
 [connection signal="timeout" from="World/EnemyPath/Timer" to="World/EnemyPath" method="_on_Timer_timeout"]
 [connection signal="area_entered" from="World/DamageArea" to="." method="_on_DamageArea_area_entered"]
