@@ -10,9 +10,11 @@ func _process(delta):
 		rotation = global_position.direction_to(targeting_enemy.global_position).angle()
 
 func _on_enemy_detected(enemy: Node) -> void:
-	targeting_enemy = enemy
-	$Timer.connect("timeout", self, "shoot_enemy", [enemy])
-	$Timer.start()
+	if not targeting_enemy:
+		targeting_enemy = enemy
+		$Timer.disconnect("timeout", self, "shoot_enemy")
+		$Timer.connect("timeout", self, "shoot_enemy", [enemy])
+		$Timer.start()
 
 func shoot_enemy(enemy: Node2D):
 	var b = bullet.instance()
@@ -24,4 +26,3 @@ func shoot_enemy(enemy: Node2D):
 func _on_enemy_exited(area):
 	targeting_enemy = null
 	$Timer.stop()
-	$Timer.disconnect("timeout", self, "shoot_enemy")

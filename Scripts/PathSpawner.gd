@@ -1,20 +1,29 @@
-extends Path2D
-onready var timer = $Timer
+extends Node2D
 
-export var spawnTime = 5
+export var spawn_time = 5
 export var enabled: bool = true
 
-var follower = preload("res://Scenes/Enemies/Enemy.tscn")
- 
+var enemy = preload("res://Scenes/Enemies/Enemy.tscn")
+
+onready var enemy_path: Path2D = $EnemyPath
+onready var spawn_timer = $Timer
+
 func _ready():
-	if enabled:
-		spawn_enemy()
-		timer.wait_time = spawnTime
-		timer.start()
+	spawn_timer.connect("timeout", self, "_on_spawner_timeout")
+	spawn_timer.wait_time = spawn_time
+
+func start():
+	enabled = true
+	spawn_enemy()
+	spawn_timer.start()
+
+func stop():
+	enabled = false
+	spawn_timer.stop()
 
 func spawn_enemy():
-	var newFollower = follower.instance()
-	add_child(newFollower)
+	var spawner_enemy = enemy.instance()
+	enemy_path.add_child(spawner_enemy)
 
-func _on_Timer_timeout() -> void:
+func _on_spawner_timeout() -> void:
 	spawn_enemy()
