@@ -2,7 +2,7 @@ extends Path2D
 onready var timer = $Timer
 
 export var spawnTime = 5
-export var enabled: bool = true 
+export var enabled: bool = true
 
 var follower = preload("res://Scenes/CharFollower.tscn")
  
