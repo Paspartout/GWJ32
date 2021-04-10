@@ -12,7 +12,7 @@ position = Vector2( 41.7462, 75.8415 )
 rotation = -0.0439275
 cubic_interp = false
 script = ExtResource( 1 )
-runSpeed = 100
+runSpeed = 500
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -0.0608482, -0.0442047 )
@@ -25,6 +25,7 @@ scale = Vector2( 0.10436, 0.109919 )
 texture = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 0
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

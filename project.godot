@@ -19,6 +19,12 @@ config/name="Tower Def"
 run/main_scene="res://Scenes/World.tscn"
 config/icon="res://icon.png"
 
+[layer_names]
+
+2d_physics/layer_1="enemies"
+2d_physics/layer_2="bullets"
+2d_physics/layer_3="player"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
