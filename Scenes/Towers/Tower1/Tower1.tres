@@ -8,5 +8,5 @@
 script = ExtResource( 1 )
 name = "Archer"
 cost = 100
-scene = ExtResource( 2 )
 icon = ExtResource( 3 )
+scene = ExtResource( 2 )

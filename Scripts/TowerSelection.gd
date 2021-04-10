@@ -8,6 +8,7 @@ onready var game: Game = get_tree().root.get_node("Game")
 
 signal tower_selected(tower)
 var tower_button_stats: Dictionary
+var selected_slot
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,16 +19,14 @@ func _ready():
 	update_buttons()
 
 func create_buttons(tower_stats: Array) -> Dictionary:
-	var tower_num = 0
-	var tower_button_stats = {}
+	var created_buttons = {}
 	for tower in tower_stats:
 		var tower_button: Button = Button.new()
 		tower_button.text = "%s - Cost: %d" % [tower.name, tower.cost]
 		tower_button.icon = tower.icon
 		tower_button.connect("pressed", self, "tower_selected", [tower])
-		tower_button_stats[tower] = tower_button
-		tower_num += 1
-	return tower_button_stats
+		created_buttons[tower] = tower_button
+	return created_buttons
 
 func update_buttons():
 	for stat in tower_button_stats.keys():
@@ -40,9 +39,14 @@ func tower_selected(tower: TowerStat):
 	emit_signal("tower_selected", tower)
 
 func open(slot):
+	if visible:
+		return
 	update_buttons()
 	visible = true
+	selected_slot = slot
 	self.connect("tower_selected", slot, "place_tower", [], CONNECT_ONESHOT)
 
 func _on_CancelButton_pressed():
 	visible = false
+	self.disconnect("tower_selected", selected_slot, "place_tower")
+	selected_slot = null

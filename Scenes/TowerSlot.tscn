@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/TowerSlot.gd" type="Script" id=1]
 [ext_resource path="res://Tilesheet/towerDefense_tilesheet.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Towers/Tower1/Tower1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/theme.tres" type="Theme" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -13,6 +14,7 @@ script = ExtResource( 1 )
 all_towers = [ ExtResource( 3 ) ]
 
 [node name="Preview" type="Sprite" parent="."]
+visible = false
 texture = SubResource( 1 )
 
 [node name="Fading" type="ColorRect" parent="Preview"]
@@ -26,10 +28,11 @@ __meta__ = {
 }
 
 [node name="BuildTowerButton" type="Button" parent="."]
-margin_left = -29.296
-margin_top = -12.3674
-margin_right = 28.704
-margin_bottom = 17.6326
+margin_left = -46.0104
+margin_top = -26.7859
+margin_right = 52.9896
+margin_bottom = 29.2141
+theme = ExtResource( 4 )
 text = "Build"
 __meta__ = {
 "_edit_use_anchors_": false

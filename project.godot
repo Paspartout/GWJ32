@@ -52,6 +52,11 @@ config/icon="res://icon.png"
 
 Towers="*res://Scenes/Towers/Towers.tscn"
 
+[debug]
+
+gdscript/warnings/unused_signal=false
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
 window/size/width=1280
