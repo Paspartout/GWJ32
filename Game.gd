@@ -15,3 +15,6 @@ func _on_DamageArea_area_entered(area):
 	area.get_parent().queue_free()
 	health -= 1
 	update_hp()
+	if health == 0:
+		get_tree().change_scene("res://Game Over.tscn")
+
