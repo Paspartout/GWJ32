@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://CharFollower.gd" type="Script" id=1]
+[ext_resource path="res://angri.png" type="Texture" id=2]
+[ext_resource path="res://Area2D.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 52.4984
+
+[node name="CharFollower" type="PathFollow2D"]
+position = Vector2( 41.7462, 75.8415 )
+rotation = -0.0439275
+cubic_interp = false
+script = ExtResource( 1 )
+runSpeed = 100
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -0.0608482, -0.0442047 )
+vframes = 11
+hframes = 11
+
+[node name="angri" type="Sprite" parent="Sprite"]
+position = Vector2( -0.0359192, 0.171753 )
+scale = Vector2( 0.10436, 0.109919 )
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -7.22841, -7.8931 )
+shape = SubResource( 1 )
