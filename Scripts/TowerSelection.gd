@@ -4,7 +4,7 @@ extends Control
 export var tower_buttons_path: NodePath
 var tower_buttons: Array
 
-signal tower_slected(num)
+signal tower_selected(num)
 
 var tower_costs = [
 	100,
@@ -24,8 +24,11 @@ func _ready():
 
 func tower_selected(number: int):
 	visible = false
-	emit_signal("tower_slected", number)
-	
+	emit_signal("tower_selected", number)
+
 func open(slot):
 	visible = true
-	self.connect("tower_slected", slot, "place_tower", [], CONNECT_ONESHOT)
+	self.connect("tower_selected", slot, "place_tower", [], CONNECT_ONESHOT)
+
+func _on_CancelButton_pressed():
+	visible = false

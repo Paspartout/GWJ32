@@ -21,6 +21,6 @@ func _ready():
 func _on_DamageArea_area_entered(area):
 	print(area.get_parent())
 	area.get_parent().queue_free()
-	health -= 1
+	#health -= 1
 	if health == 0:
 		get_tree().change_scene("res://Game Over.tscn")
