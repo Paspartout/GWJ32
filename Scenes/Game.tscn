@@ -57,7 +57,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -32.3829, 113.168, 0, 0, 0, 0, 125.92, 112.004, 0, 0, 0, 0, 275.482, 111.801, 0, 0, 0, 0, 813.958, 113.168, 0, 0, 0, 0, 808.867, 209.773, 0, 0, 0, 0, 575.752, 211.08, 0, 0, 0, 0, 584.31, 314.726, 0, 0, 0, 0, 816.61, 309.065, 0, 0, 0, 0, 816.203, 404.873, 0, 0, 0, 0, 399.285, 404.437, 0, 0, 0, 0, 394.802, 210.209, 0, 0, 0, 0, 122.188, 218.863, 0, 0, 0, 0, 117.251, 392.484, 0, 0, 0, 0, 112.935, 572.248 )
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "Wave01"
 length = 10.0
 tracks/0/type = "method"
@@ -99,7 +99,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "Wave02"
 length = 20.0
 tracks/0/type = "method"
@@ -186,10 +186,10 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 43.2595, 28.9771 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 16.5123, 748.529 )
 
 [node name="Game" type="Node2D"]
@@ -286,8 +286,8 @@ scale = Vector2( 1.37555, 1.28728 )
 curve = SubResource( 2 )
 
 [node name="WavePlayer" type="AnimationPlayer" parent="World/PathSpawner"]
-anims/Wave01 = SubResource( 5 )
-anims/Wave02 = SubResource( 6 )
+anims/Wave01 = SubResource( 3 )
+anims/Wave02 = SubResource( 4 )
 
 [node name="CheckTimer" type="Timer" parent="World/PathSpawner"]
 
@@ -297,7 +297,7 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/DamageArea"]
 position = Vector2( 153.97, 544.736 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="Slots" type="Node2D" parent="World"]
 position = Vector2( -6, -36 )
@@ -336,21 +336,21 @@ collision_mask = 4
 
 [node name="Left" type="CollisionShape2D" parent="World/Boundaries"]
 position = Vector2( -18.7897, 310.417 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="Right" type="CollisionShape2D" parent="World/Boundaries"]
 position = Vector2( 1291.43, 310.417 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="Up" type="CollisionShape2D" parent="World/Boundaries"]
 position = Vector2( 599.411, -47.2099 )
 rotation = 1.57079
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="Down" type="CollisionShape2D" parent="World/Boundaries"]
 position = Vector2( 613.446, 697.232 )
 rotation = 1.57079
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="Towers" type="Node2D" parent="."]
 
@@ -358,4 +358,5 @@ shape = SubResource( 4 )
 position = Vector2( 246.39, 370.32 )
 collision_layer = 4
 collision_mask = 0
+
 [connection signal="area_entered" from="World/DamageArea" to="." method="_on_DamageArea_area_entered"]
