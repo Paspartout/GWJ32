@@ -2,31 +2,45 @@ class_name TowerSelection
 extends Control
 
 export var tower_buttons_path: NodePath
-var tower_buttons: Array
+onready var tower_button_container: Container = get_node(tower_buttons_path)
 
-signal tower_selected(num)
+onready var game: Game = get_tree().root.get_node("Game")
 
-var tower_costs = [
-	100,
-	200,
-	300
-]
+signal tower_selected(tower)
+var tower_button_stats: Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	tower_buttons = get_node(tower_buttons_path).get_children()
 	visible = false
-	var tower_num = 0
-	for tower_button in tower_buttons:
-		tower_button.connect("pressed", self, "tower_selected", [tower_num])
-		tower_button.text = "Tower %d - Cost: %d" % [tower_num, tower_costs[tower_num]]
-		tower_num += 1
+	tower_button_stats = create_buttons(Towers.all_towers)
+	for tb in tower_button_stats.values():
+		tower_button_container.add_child(tb)
+	update_buttons()
 
-func tower_selected(number: int):
+func create_buttons(tower_stats: Array) -> Dictionary:
+	var tower_num = 0
+	var tower_button_stats = {}
+	for tower in tower_stats:
+		var tower_button: Button = Button.new()
+		tower_button.text = "%s - Cost: %d" % [tower.name, tower.cost]
+		tower_button.icon = tower.icon
+		tower_button.connect("pressed", self, "tower_selected", [tower])
+		tower_button_stats[tower] = tower_button
+		tower_num += 1
+	return tower_button_stats
+
+func update_buttons():
+	for stat in tower_button_stats.keys():
+		var button = tower_button_stats[stat]
+		button.disabled = stat.cost > game.money
+
+func tower_selected(tower: TowerStat):
+	game.money -= tower.cost
 	visible = false
-	emit_signal("tower_selected", number)
+	emit_signal("tower_selected", tower)
 
 func open(slot):
+	update_buttons()
 	visible = true
 	self.connect("tower_selected", slot, "place_tower", [], CONNECT_ONESHOT)
 

@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Scenes/Towers/Tower1/Sprite.tres" type="Texture" id=1]
 [ext_resource path="res://Scripts/TowerSelection.gd" type="Script" id=2]
 
 [node name="Panel" type="Panel"]
@@ -10,21 +9,14 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-tower_buttons_path = NodePath("Towers")
+tower_buttons_path = NodePath("TowerButtons")
 
-[node name="Towers" type="VBoxContainer" parent="."]
+[node name="TowerButtons" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Tower01" type="Button" parent="Towers"]
-margin_right = 512.0
-margin_bottom = 70.0
-text = "Tower1 - Cost"
-icon = ExtResource( 1 )
-align = 0
 
 [node name="CancelButton" type="Button" parent="."]
 margin_left = 399.489
