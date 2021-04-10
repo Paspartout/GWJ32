@@ -8,15 +8,26 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Control",
+"class": "TowerSelection",
+"language": "GDScript",
+"path": "res://Scripts/TowerSelection.gd"
+}, {
+"base": "Node2D",
+"class": "TowerSlot",
+"language": "GDScript",
+"path": "res://Scripts/TowerSlot.gd"
+} ]
 _global_script_class_icons={
-
+"TowerSelection": "",
+"TowerSlot": ""
 }
 
 [application]
 
-config/name="Wild jam"
-run/main_scene="res://Scenes/World.tscn"
+config/name="Tower Def"
+run/main_scene="res://Scenes/Game.tscn"
 config/icon="res://icon.png"
 
 [layer_names]
