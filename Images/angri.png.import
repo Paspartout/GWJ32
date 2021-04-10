@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/angri.png-22a116d0fdeb165d82804e3cddfec113.stex"
+path="res://.import/angri.png-68a1e44513020bf25f689bef498b40aa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://angri.png"
-dest_files=[ "res://.import/angri.png-22a116d0fdeb165d82804e3cddfec113.stex" ]
+source_file="res://Images/angri.png"
+dest_files=[ "res://.import/angri.png-68a1e44513020bf25f689bef498b40aa.stex" ]
 
 [params]
 
