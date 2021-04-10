@@ -13,9 +13,9 @@ func _ready():
 func _on_BuildTowerButton_pressed():
 	tower_selection.open(self)
 	
-func place_tower(number: int):
-	var built_tower = all_towers[number].instance()
+func place_tower(tower: TowerStat):
+	var built_tower = tower.scene.instance()
 	add_child(built_tower)
-	
+
 	tower_button.visible = false
 	$Preview.hide()

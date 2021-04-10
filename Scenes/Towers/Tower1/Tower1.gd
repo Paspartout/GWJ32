@@ -3,13 +3,13 @@ extends Node2D
 const bullet = preload("res://Scenes/Bullet.tscn")
 
 var targeting_enemy: Node2D
+export var cost: int = 100
 
 func _process(delta):
 	if targeting_enemy:
 		rotation = global_position.direction_to(targeting_enemy.global_position).angle()
 
 func _on_enemy_detected(enemy: Node) -> void:
-	print("enemy detected")
 	targeting_enemy = enemy
 	$Timer.connect("timeout", self, "shoot_enemy", [enemy])
 	$Timer.start()
