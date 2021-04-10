@@ -24,6 +24,7 @@ func set_money(new_money):
 func _ready():
 	hp_label.text = "HP: %d" % health
 	money_label.text = "Money: %d" % money
+	spawner.start()
 
 func start_wave():
 	assert(state == State.Building)
