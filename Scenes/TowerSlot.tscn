@@ -1,31 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/TowerSlot.gd" type="Script" id=1]
-[ext_resource path="res://Tilesheet/towerDefense_tilesheet.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Towers/Tower1/Tower1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Towers/Archer/TowerArcher.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/theme.tres" type="Theme" id=4]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 2 )
-region = Rect2( 1216, 640, 64, 64 )
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 28.816, 31.4554 )
 
 [node name="TowerSlot" type="Node2D"]
 script = ExtResource( 1 )
 all_towers = [ ExtResource( 3 ) ]
-
-[node name="Preview" type="Sprite" parent="."]
-visible = false
-texture = SubResource( 1 )
-
-[node name="Fading" type="ColorRect" parent="Preview"]
-margin_left = -27.6309
-margin_top = -29.2304
-margin_right = 29.3691
-margin_bottom = 31.7696
-color = Color( 0, 0, 0, 0.494118 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="BuildTowerButton" type="Button" parent="."]
 modulate = Color( 1, 1, 1, 0.67451 )
@@ -38,4 +22,16 @@ text = "Build"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BuiltTower" type="Node2D" parent="."]
+
+[node name="TowerClickArea" type="Area2D" parent="."]
+collision_layer = 524288
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerClickArea"]
+shape = SubResource( 2 )
 [connection signal="pressed" from="BuildTowerButton" to="." method="_on_BuildTowerButton_pressed"]
+[connection signal="input_event" from="TowerClickArea" to="." method="_on_TowerClickArea_input_event"]
+[connection signal="mouse_entered" from="TowerClickArea" to="." method="_on_TowerClickArea_mouse_entered"]
+[connection signal="mouse_exited" from="TowerClickArea" to="." method="_on_TowerClickArea_mouse_exited"]

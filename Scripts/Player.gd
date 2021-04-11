@@ -5,8 +5,6 @@ var velocity : Vector2 = Vector2()
 var facingDirection : Vector2 = Vector2()
 var state_machine
 
-
-
 func _ready():
 	state_machine = $AnimationTree.get("parameters/playback")
 
@@ -43,8 +41,6 @@ func _physics_process(delta):
 		state_machine.travel("IdleFront")
 		$CPUParticles2D.emitting = false
 		
-	
 	velocity = velocity.normalized()
-	
 
 	move_and_slide(velocity * speed)

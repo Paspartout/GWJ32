@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://UI/EquipmentPro.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://UI/theme.tres" type="Theme" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 150
@@ -45,6 +46,7 @@ margin_left = 496.0
 margin_top = 400.0
 margin_right = 783.0
 margin_bottom = 516.0
+theme = ExtResource( 3 )
 custom_fonts/font = SubResource( 2 )
 text = "  Play  "
 __meta__ = {
@@ -56,6 +58,7 @@ margin_left = 496.0
 margin_top = 536.0
 margin_right = 782.0
 margin_bottom = 642.0
+theme = ExtResource( 3 )
 custom_fonts/font = SubResource( 3 )
 text = "  Exit  "
 __meta__ = {

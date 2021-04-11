@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Towers/Towers.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Towers/Tower1/Tower1.tres" type="Resource" id=2]
-[ext_resource path="res://Scenes/Towers/Tower2/Tower2.tres" type="Resource" id=3]
+[ext_resource path="res://Scenes/Towers/Archer/TowerArcher.tres" type="Resource" id=2]
+[ext_resource path="res://Scenes/Towers/Bomber/TowerBomber.tres" type="Resource" id=3]
+[ext_resource path="res://Scenes/Towers/Slower/TowerSlower.tres" type="Resource" id=4]
 
 [node name="Towers" type="Node2D"]
 script = ExtResource( 1 )
-all_towers = [ ExtResource( 2 ), ExtResource( 3 ) ]
+all_towers = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]

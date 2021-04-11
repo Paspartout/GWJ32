@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Towers/TowerStat.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Towers/Slower/TowerSlower.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Towers/Slower/Sprite.tres" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 1 )
+name = "Slower"
+description = "The Slower slows enemy in it's range down for a certain period of time."
+icon = ExtResource( 3 )
+cost = 200
+action_speed = 2.0
+damage = 0
+scene = ExtResource( 2 )

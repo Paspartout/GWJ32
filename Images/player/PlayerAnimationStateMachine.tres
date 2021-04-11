@@ -1,0 +1,71 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=26 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "IdleFront"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "RunBack"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "RunFront"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "RunLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "RunRight"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[resource]
+states/IdleFront/node = SubResource( 1 )
+states/IdleFront/position = Vector2( 256, 148 )
+states/RunBack/node = SubResource( 2 )
+states/RunBack/position = Vector2( 440, 101 )
+states/RunFront/node = SubResource( 3 )
+states/RunFront/position = Vector2( 629, 101 )
+states/RunLeft/node = SubResource( 4 )
+states/RunLeft/position = Vector2( 440, 235 )
+states/RunRight/node = SubResource( 5 )
+states/RunRight/position = Vector2( 636, 235 )
+transitions = [ "RunBack", "RunLeft", SubResource( 6 ), "RunLeft", "RunBack", SubResource( 7 ), "RunFront", "RunRight", SubResource( 8 ), "RunRight", "RunFront", SubResource( 9 ), "RunLeft", "RunFront", SubResource( 10 ), "RunBack", "RunRight", SubResource( 11 ), "RunFront", "RunLeft", SubResource( 12 ), "RunRight", "RunBack", SubResource( 13 ), "RunLeft", "RunRight", SubResource( 14 ), "RunRight", "RunLeft", SubResource( 15 ), "RunFront", "RunBack", SubResource( 16 ), "RunBack", "RunFront", SubResource( 17 ), "RunBack", "IdleFront", SubResource( 18 ), "RunLeft", "IdleFront", SubResource( 19 ), "RunRight", "IdleFront", SubResource( 20 ), "RunFront", "IdleFront", SubResource( 21 ), "IdleFront", "RunLeft", SubResource( 22 ), "IdleFront", "RunRight", SubResource( 23 ), "IdleFront", "RunBack", SubResource( 24 ), "IdleFront", "RunFront", SubResource( 25 ) ]
+start_node = "IdleFront"
+graph_offset = Vector2( -195, -48 )

@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Tower",
+"class": "BulletTower",
+"language": "GDScript",
+"path": "res://Scenes/Towers/BulletTower.gd"
+}, {
 "base": "PathFollow2D",
 "class": "Enemy",
 "language": "GDScript",
@@ -19,15 +24,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Game.gd"
 }, {
-"base": "Control",
-"class": "TowerSelection",
+"base": "Node2D",
+"class": "Tower",
 "language": "GDScript",
-"path": "res://Scripts/TowerSelection.gd"
+"path": "res://Scenes/Towers/Tower.gd"
+}, {
+"base": "Control",
+"class": "TowerMenu",
+"language": "GDScript",
+"path": "res://Scripts/TowerMenu.gd"
 }, {
 "base": "Node2D",
 "class": "TowerSlot",
 "language": "GDScript",
 "path": "res://Scripts/TowerSlot.gd"
+}, {
+"base": "Tower",
+"class": "TowerSlower",
+"language": "GDScript",
+"path": "res://Scenes/Towers/Slower/TowerSlower.gd"
 }, {
 "base": "Resource",
 "class": "TowerStat",
@@ -35,10 +50,13 @@ _global_script_classes=[ {
 "path": "res://Scenes/Towers/TowerStat.gd"
 } ]
 _global_script_class_icons={
+"BulletTower": "",
 "Enemy": "",
 "Game": "",
-"TowerSelection": "",
+"Tower": "",
+"TowerMenu": "",
 "TowerSlot": "",
+"TowerSlower": "",
 "TowerStat": ""
 }
 
@@ -51,6 +69,10 @@ config/icon="res://icon.png"
 [autoload]
 
 Towers="*res://Scenes/Towers/Towers.tscn"
+
+[debug]
+
+gdscript/warnings/return_value_discarded=false
 
 [display]
 
@@ -95,4 +117,5 @@ Attack={
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 environment/default_environment="res://default_env.tres"

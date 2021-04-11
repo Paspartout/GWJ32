@@ -1,12 +1,13 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Scenes/TowerSelection.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/TowerMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/PathSpawner.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/TowerSlot.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Tilesheet/towerDefense_tilesheet.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/theme.tres" type="Theme" id=7]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "GameWon"

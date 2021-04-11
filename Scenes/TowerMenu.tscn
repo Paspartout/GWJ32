@@ -1,0 +1,130 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Towers/Archer/Sprite.tres" type="Texture" id=1]
+[ext_resource path="res://Scripts/TowerMenu.gd" type="Script" id=2]
+[ext_resource path="res://UI/theme.tres" type="Theme" id=3]
+
+[node name="TowerMenu" type="Panel"]
+margin_right = 512.0
+margin_bottom = 369.0
+theme = ExtResource( 3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+tower_buttons_path = NodePath("Layout/TowerSelection")
+tower_stats_path = NodePath("Layout/TowerStats")
+
+[node name="Layout" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TowerSelection" type="VBoxContainer" parent="Layout"]
+margin_right = 492.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TowerStats" type="VBoxContainer" parent="Layout"]
+visible = false
+margin_top = 4.0
+margin_right = 492.0
+margin_bottom = 289.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TowerIcon" type="TextureRect" parent="Layout/TowerStats"]
+margin_right = 492.0
+margin_bottom = 64.0
+texture = ExtResource( 1 )
+stretch_mode = 6
+
+[node name="TowerName" type="Label" parent="Layout/TowerStats"]
+margin_top = 68.0
+margin_right = 492.0
+margin_bottom = 116.0
+text = "Archer Tower"
+align = 1
+
+[node name="StatsGrid" type="GridContainer" parent="Layout/TowerStats"]
+margin_top = 120.0
+margin_right = 492.0
+margin_bottom = 220.0
+columns = 2
+
+[node name="SpeedLabel" type="Label" parent="Layout/TowerStats/StatsGrid"]
+margin_right = 306.0
+margin_bottom = 48.0
+text = "Rate of Fire:"
+
+[node name="SpeedValue" type="Label" parent="Layout/TowerStats/StatsGrid"]
+margin_left = 310.0
+margin_right = 492.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+text = "300"
+align = 2
+
+[node name="DamageLabel" type="Label" parent="Layout/TowerStats/StatsGrid"]
+margin_top = 52.0
+margin_right = 306.0
+margin_bottom = 100.0
+text = "Damage per shot:"
+
+[node name="DamageValue" type="Label" parent="Layout/TowerStats/StatsGrid"]
+margin_left = 310.0
+margin_top = 52.0
+margin_right = 492.0
+margin_bottom = 100.0
+text = "1"
+align = 2
+
+[node name="ActionRow" type="HBoxContainer" parent="Layout"]
+margin_top = 4.0
+margin_right = 492.0
+margin_bottom = 60.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Destroy" type="Button" parent="Layout/ActionRow"]
+margin_right = 147.0
+margin_bottom = 56.0
+disabled = true
+text = "Destroy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Upgrade" type="Button" parent="Layout/ActionRow"]
+margin_left = 151.0
+margin_right = 362.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+disabled = true
+text = "Upgrade"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cancel" type="Button" parent="Layout/ActionRow"]
+margin_left = 366.0
+margin_right = 492.0
+margin_bottom = 56.0
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Layout/ActionRow/Destroy" to="." method="_on_Destroy_pressed"]
+[connection signal="pressed" from="Layout/ActionRow/Upgrade" to="." method="_on_Upgrade_pressed"]
+[connection signal="pressed" from="Layout/ActionRow/Cancel" to="." method="_on_CancelButton_pressed"]
