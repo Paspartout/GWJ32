@@ -23,4 +23,6 @@ shape = SubResource( 1 )
 position = Vector2( 0, 0.281 )
 rotation = 1.57079
 texture = SubResource( 2 )
+
+[node name="LifeTimer" type="Timer" parent="."]
 [connection signal="area_entered" from="." to="." method="_on_enemy_hit"]

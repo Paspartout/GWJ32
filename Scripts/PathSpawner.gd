@@ -1,6 +1,7 @@
 extends Node2D
 
 signal wave_finished()
+signal game_finished()
 
 var enemy = preload("res://Scenes/Enemies/Enemy.tscn")
 
@@ -17,13 +18,13 @@ var spawning_in_progress = false
 
 func _ready():
 	assert(waves.size() > 0)
+	wave_player.connect("animation_finished", self, "spawning_stopped")
 
 func start():
 	spawning_in_progress = true
 	wave_in_progress = true
 	wave_player.play(waves[current_wave])
-	wave_player.connect("animation_finished", self, "spawning_stopped")
-	
+
 func spawning_stopped(_name):
 	spawning_in_progress = false
 	check_timer.connect("timeout", self, "check_remaining_enemies")
@@ -37,6 +38,8 @@ func check_remaining_enemies():
 		current_wave += 1
 		check_timer.disconnect("timeout", self, "check_remaining_enemies")
 		check_timer.stop()
+		if current_wave >= waves.size():
+			emit_signal("game_finished")
 
 func spawn_enemy():
 	var new_enemy: Enemy = enemy.instance()

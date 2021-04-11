@@ -1,21 +1,21 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/CharFollower.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://Tilesheet/towerDefense_tilesheet.png" type="Texture" id=3]
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
 region = Rect2( 960, 640, 64, 64 )
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 24.1417
+radius = 20.3577
 
 [node name="Enemy" type="PathFollow2D"]
 cubic_interp = false
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = SubResource( 3 )
+texture = SubResource( 1 )
 
 [node name="EnemyCollision" type="Area2D" parent="."]
 collision_mask = 0

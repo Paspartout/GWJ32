@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "PathFollow2D",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://Scripts/CharFollower.gd"
+"path": "res://Scripts/Enemy.gd"
 }, {
 "base": "Node2D",
 "class": "Game",
@@ -100,4 +100,5 @@ Attack={
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 environment/default_environment="res://default_env.tres"

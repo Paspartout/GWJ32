@@ -28,6 +28,7 @@ __meta__ = {
 }
 
 [node name="BuildTowerButton" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0.67451 )
 margin_left = -46.0104
 margin_top = -26.7859
 margin_right = 52.9896
