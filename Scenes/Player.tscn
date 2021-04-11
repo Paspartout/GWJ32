@@ -210,7 +210,7 @@ parameters/playback = SubResource( 35 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 1 )
 hframes = 36
-frame = 14
+frame = 27
 
 [node name="Sword" type="Area2D" parent="."]
 position = Vector2( 0.176773, -2.76154 )
