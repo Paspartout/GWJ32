@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/TowerSelection.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=2]
@@ -230,6 +230,33 @@ extents = Vector2( 43.2595, 28.9771 )
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 16.5123, 748.529 )
 
+[sub_resource type="Animation" id=8]
+resource_name = "Fade"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
 spawner_path = NodePath("World/PathSpawner")
@@ -423,4 +450,18 @@ shape = SubResource( 7 )
 position = Vector2( 246.39, 370.32 )
 collision_layer = 4
 collision_mask = 0
+
+[node name="Fade Effect" type="ColorRect" parent="."]
+margin_left = -8.0
+margin_top = -5.0
+margin_right = 1285.0
+margin_bottom = 727.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fade Effect"]
+autoplay = "Fade"
+anims/Fade = SubResource( 8 )
 [connection signal="area_entered" from="World/DamageArea" to="." method="_on_DamageArea_area_entered"]
