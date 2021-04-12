@@ -30,8 +30,9 @@ func _on_enemy_detected(enemy_area: Area2D) -> void:
 	if not target_enemy:
 		target_enemy = enemies_queue.front()
 	if action_timer.is_stopped():
+		#call_deferred("action")
 		action_timer.start()
-		call_deferred("action")
+		
 
 func _on_enemy_exited(enemy_area: Area2D):
 	var enemy = enemy_area.get_parent()

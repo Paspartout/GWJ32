@@ -10,6 +10,6 @@ name = "Bomber"
 description = "The Bomber shoots at the nearest enemy, but causes AOE damage."
 icon = ExtResource( 1 )
 cost = 300
-action_speed = 0.5
+action_speed = 1.0
 damage = 3
 scene = ExtResource( 2 )

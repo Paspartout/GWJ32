@@ -10,6 +10,6 @@ name = "Archer"
 description = "The Archer simply shoots at the nearest enemy."
 icon = ExtResource( 1 )
 cost = 100
-action_speed = 1.0
+action_speed = 2.0
 damage = 1
 scene = ExtResource( 2 )

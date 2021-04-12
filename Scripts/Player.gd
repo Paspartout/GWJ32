@@ -1,61 +1,58 @@
 extends KinematicBody2D
 
-var speed = 400
+export var speed: float = 400
+export var damage: int = 1
 var velocity : Vector2 = Vector2()
 var facingDirection : Vector2 = Vector2()
-var state_machine
 
-var LBP = 0
+onready var animation_player: AnimationPlayer = $AnimationPlayer
+onready var animation_tree: AnimationTree = $AnimationTree
+onready var state_machine = animation_tree.get("parameters/playback")
+
+enum State {
+	Move,
+	Attack,
+}
+var state = State.Move
 
 func _ready():
-	state_machine = $AnimationTree.get("parameters/playback")
+	animation_tree.active = true
+
+func move_state(delta):
+	var input_vec = Vector2.ZERO
+	
+	input_vec.x = Input.get_action_strength("right") - Input.get_action_strength("left")
+	input_vec.y = Input.get_action_strength("down") - Input.get_action_strength("up")
+	
+	if input_vec != Vector2.ZERO:
+		animation_tree.set("parameters/Idle/blend_position", input_vec)
+		animation_tree.set("parameters/Attack/blend_position", input_vec)
+		animation_tree.set("parameters/Walk/blend_position", input_vec)
+		state_machine.travel("Walk")
+	else:
+		state_machine.travel("Idle")
+	
+	if Input.is_action_just_pressed("attack"):
+		state = State.Attack
+		state_machine.travel("Attack")
+
+	velocity = input_vec * speed
+	move_and_slide(velocity)
+
+func attack_finished():
+	state = State.Move
+
+func attack_state(delta):
+	pass
 
 func _physics_process(delta):
-	
-	velocity = Vector2()
-	
+	match state:
+		State.Move:
+			move_state(delta)
+		State.Attack:
+			attack_state(delta)
 
-	
-	if Input.is_action_pressed("up"):
-		LBP = 1
-		state_machine.travel("RunBack")
-		velocity.y -= 1
-		facingDirection = Vector2(0, -1)
-		$CPUParticles2D.emitting = true
-		
-	if Input.is_action_pressed("down"):
-		LBP = 2
-		$CPUParticles2D.emitting = true
-		state_machine.travel("RunFront")
-		velocity.y += 1
-		facingDirection = Vector2(0, 1)
-		
-	if Input.is_action_pressed("left"):
-		LBP = 3
-		$CPUParticles2D.emitting = true
-		state_machine.travel("RunLeft")
-		velocity.x -= 1
-		facingDirection = Vector2(-1, 0)
-		
-	if Input.is_action_pressed("right"):
-		LBP = 4
-		$CPUParticles2D.emitting = true
-		state_machine.travel("RunRight")
-		velocity.x += 1
-		facingDirection = Vector2(1, 0)
-	
-	if velocity.length() == 0:
-		$CPUParticles2D.emitting = false
-		if LBP == 1:
-			state_machine.travel("IdleBack")
-		if LBP == 2:
-			state_machine.travel("IdleFront")
-		if LBP == 3:
-			state_machine.travel("IdleLeft")
-		if LBP == 4:
-			state_machine.travel("IdleRight")
-			
-		
-	velocity = velocity.normalized()
-
-	move_and_slide(velocity * speed)
+func _on_Weapon_hit(area: Area2D):
+	var enemy = area.get_parent()
+	if enemy.has_method("hurt"):
+		enemy.hurt(damage)

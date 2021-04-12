@@ -1,0 +1,91 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=21 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=104]
+animation = "AttackBottom"
+
+[sub_resource type="AnimationNodeAnimation" id=105]
+animation = "AttackRight"
+
+[sub_resource type="AnimationNodeAnimation" id=106]
+animation = "AttackTop"
+
+[sub_resource type="AnimationNodeAnimation" id=107]
+animation = "AttackLeft"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=99]
+blend_point_0/node = SubResource( 104 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 105 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 106 )
+blend_point_2/pos = Vector2( 0, -1 )
+blend_point_3/node = SubResource( 107 )
+blend_point_3/pos = Vector2( -1, 0 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=92]
+animation = "IdleFront"
+
+[sub_resource type="AnimationNodeAnimation" id=93]
+animation = "IdleRight"
+
+[sub_resource type="AnimationNodeAnimation" id=94]
+animation = "IdleLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=95]
+animation = "IdleBack"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=96]
+blend_point_0/node = SubResource( 92 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 93 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 94 )
+blend_point_2/pos = Vector2( -1, 0 )
+blend_point_3/node = SubResource( 95 )
+blend_point_3/pos = Vector2( 0, -1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=88]
+animation = "RunFront"
+
+[sub_resource type="AnimationNodeAnimation" id=89]
+animation = "RunRight"
+
+[sub_resource type="AnimationNodeAnimation" id=90]
+animation = "RunLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=91]
+animation = "RunBack"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=80]
+blend_point_0/node = SubResource( 88 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 89 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 90 )
+blend_point_2/pos = Vector2( -1, 0 )
+blend_point_3/node = SubResource( 91 )
+blend_point_3/pos = Vector2( 0, -1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=97]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=98]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=100]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=101]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=102]
+
+[resource]
+states/Attack/node = SubResource( 99 )
+states/Attack/position = Vector2( 569.333, 44.3333 )
+states/Idle/node = SubResource( 96 )
+states/Idle/position = Vector2( 451, 207.587 )
+states/Walk/node = SubResource( 80 )
+states/Walk/position = Vector2( 691, 207.062 )
+transitions = [ "Idle", "Walk", SubResource( 97 ), "Walk", "Idle", SubResource( 98 ), "Idle", "Attack", SubResource( 100 ), "Walk", "Attack", SubResource( 101 ), "Attack", "Idle", SubResource( 102 ) ]
+start_node = "Idle"
+graph_offset = Vector2( 27, -8 )

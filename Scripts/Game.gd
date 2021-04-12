@@ -18,6 +18,9 @@ onready var spawner = get_node(spawner_path)
 onready var start_wave_button: Button = get_node(start_wave_button_path)
 onready var ui_animations: AnimationPlayer = get_node(ui_animations_path)
 
+const HP_STRING = "HP: %d"
+const MONEY_STRING = "Essence: %d"
+
 func _ready():
 	set_money(money)
 	set_health(health)
@@ -27,11 +30,13 @@ func _ready():
 
 func set_health(new_heatlh):
 	health = new_heatlh
-	hp_label.text = "HP: %d" % health
+	if hp_label:
+		hp_label.text = HP_STRING % health
 
 func set_money(new_money):
 	money = new_money
-	money_label.text = "Money: %d" % money
+	if money_label:
+		money_label.text = MONEY_STRING % money
 
 func start_wave():
 	assert(state == State.Building)
@@ -62,9 +67,7 @@ func _on_DamageArea_area_entered(area):
 	MusicNode.play()
 	print(area.get_parent())
 	area.get_parent().queue_free()
-	health -= 1
+	self.health -= 1
 	if health == 0:
-		get_tree().change_scene("res://Game Over.tscn")
-
-
-
+		print("Game Over")
+		# TODO: Redo the game over with proper checkpoints/reloading of wave state
