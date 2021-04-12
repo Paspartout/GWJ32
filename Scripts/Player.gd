@@ -36,7 +36,7 @@ func move_state(delta):
 		state = State.Attack
 		state_machine.travel("Attack")
 
-	velocity = input_vec * speed
+	velocity = input_vec.normalized() * speed
 	move_and_slide(velocity)
 
 func attack_finished():

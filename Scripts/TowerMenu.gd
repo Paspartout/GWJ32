@@ -8,7 +8,7 @@ onready var tower_button_container: Container = get_node(tower_buttons_path)
 onready var tower_stats_container: Container = get_node(tower_stats_path)
 
 onready var upgrade_button: Button = $Layout/ActionRow/Upgrade
-onready var destroy_button: Button = $Layout/ActionRow/Destroy
+onready var sell_button: Button = $Layout/ActionRow/Sell
 onready var cancel_button: Button = $Layout/ActionRow/Cancel
 
 onready var game: Game = get_tree().root.get_node("Game")
@@ -60,8 +60,8 @@ func open_tower_menu(slot):
 	
 	tower_stats_container.visible = true
 	tower_button_container.visible = false
-	upgrade_button.disabled = false # TODO: Add upgrade logic
-	destroy_button.disabled = false
+	upgrade_button.disabled = true # TODO: Add upgrade logic
+	sell_button.disabled = false
 
 	selected_slot = slot
 	update_build_buttons()
@@ -76,7 +76,7 @@ func open_build_menu(slot):
 	tower_stats_container.visible = false
 	tower_button_container.visible = true
 	upgrade_button.disabled = true
-	destroy_button.disabled = true
+	sell_button.disabled = true
 
 	selected_slot = slot
 	update_build_buttons()

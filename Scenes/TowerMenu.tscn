@@ -97,17 +97,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Destroy" type="Button" parent="Layout/ActionRow"]
-margin_right = 147.0
+[node name="Sell" type="Button" parent="Layout/ActionRow"]
+margin_right = 72.0
 margin_bottom = 56.0
 disabled = true
-text = "Destroy"
+text = "Sell"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Upgrade" type="Button" parent="Layout/ActionRow"]
-margin_left = 151.0
+margin_left = 76.0
 margin_right = 362.0
 margin_bottom = 56.0
 size_flags_horizontal = 3
@@ -125,6 +125,6 @@ text = "Cancel"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Layout/ActionRow/Destroy" to="." method="_on_Destroy_pressed"]
+[connection signal="pressed" from="Layout/ActionRow/Sell" to="." method="_on_Destroy_pressed"]
 [connection signal="pressed" from="Layout/ActionRow/Upgrade" to="." method="_on_Upgrade_pressed"]
 [connection signal="pressed" from="Layout/ActionRow/Cancel" to="." method="_on_CancelButton_pressed"]

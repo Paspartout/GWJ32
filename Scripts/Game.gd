@@ -17,6 +17,7 @@ onready var money_label: Label = $HUD/WaveStats/HBoxContainer/Money
 onready var spawner = get_node(spawner_path)
 onready var start_wave_button: Button = get_node(start_wave_button_path)
 onready var ui_animations: AnimationPlayer = get_node(ui_animations_path)
+onready var audio_player: AudioStreamPlayer = $World/DamageArea/AudioStreamPlayer
 
 const HP_STRING = "HP: %d"
 const MONEY_STRING = "Essence: %d"
@@ -63,9 +64,7 @@ func restart_game():
 	get_tree().reload_current_scene()
 
 func _on_DamageArea_area_entered(area):
-	var MusicNode = $World/DamageArea/AudioStreamPlayer
-	MusicNode.play()
-	print(area.get_parent())
+	audio_player.play()
 	area.get_parent().queue_free()
 	self.health -= 1
 	if health == 0:
