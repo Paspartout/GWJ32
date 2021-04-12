@@ -21,6 +21,8 @@ func _process(delta):
 		queue_free()
 
 func hurt(damage: int):
+	var MusicNode = $AudioStreamPlayer
+	MusicNode.play()
 	hp -= damage
 	if hp <= 0:
 		queue_free()

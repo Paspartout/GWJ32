@@ -58,6 +58,8 @@ func restart_game():
 	get_tree().reload_current_scene()
 
 func _on_DamageArea_area_entered(area):
+	var MusicNode = $World/DamageArea/AudioStreamPlayer
+	MusicNode.play()
 	print(area.get_parent())
 	area.get_parent().queue_free()
 	health -= 1

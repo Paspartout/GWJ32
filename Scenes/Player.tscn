@@ -368,7 +368,7 @@ scale = Vector2( 4, 4 )
 texture = ExtResource( 1 )
 vframes = 8
 hframes = 6
-frame = 20
+frame = 19
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 26 )
