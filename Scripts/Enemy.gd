@@ -6,11 +6,11 @@ signal killed(loot)
 export var hp: int = 3
 export var default_speed: int = 100
 export var loot_money: int = 10
-signal killed
 
 onready var slow_timer: Timer = $SlowTimer
 onready var sprite: Sprite = $Sprite
 onready var animation: AnimationPlayer = $AnimationPlayer
+onready var audio_player = $AudioStreamPlayer
 
 var speed
 
@@ -25,13 +25,14 @@ func _process(delta):
 		queue_free()
 
 func hurt(damage: int):
-	var MusicNode = $AudioStreamPlayer
-	MusicNode.play()
-	hp -= damage
+	audio_player.play()
 	animation.play("Hurt")
+	hp -= damage
 	if hp <= 0:
+		yield(audio_player, "finished")
 		queue_free()
 		emit_signal("killed", loot_money)
+
 
 func slow(time: float, multiplier: float):
 	speed = default_speed * multiplier

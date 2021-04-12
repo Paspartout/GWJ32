@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/AttackSound.wav-4980bf3101a63b25599c9bce81565788.sample"
+path="res://.import/AttackSound.wav-75647767b0212b3655d4f9a141505eb7.sample"
 
 [deps]
 
-source_file="res://AttackSound.wav"
-dest_files=[ "res://.import/AttackSound.wav-4980bf3101a63b25599c9bce81565788.sample" ]
+source_file="res://Sounds/AttackSound.wav"
+dest_files=[ "res://.import/AttackSound.wav-75647767b0212b3655d4f9a141505eb7.sample" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/GetThrough.wav-d39ec4dbfd2fe8ff32b0fb0c704f5162.sample"
+path="res://.import/GetThrough.wav-0d88c7286737a7502fb6a8bd437cc259.sample"
 
 [deps]
 
-source_file="res://GetThrough.wav"
-dest_files=[ "res://.import/GetThrough.wav-d39ec4dbfd2fe8ff32b0fb0c704f5162.sample" ]
+source_file="res://Sounds/GetThrough.wav"
+dest_files=[ "res://.import/GetThrough.wav-0d88c7286737a7502fb6a8bd437cc259.sample" ]
 
 [params]
 

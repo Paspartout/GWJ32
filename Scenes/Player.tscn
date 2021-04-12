@@ -7,7 +7,7 @@
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 72, 72 )
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -505,20 +505,18 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=77]
-radius = 32.4029
-
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 60 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 1 )
 vframes = 12
 hframes = 6
-frame = 52
+frame = 54
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2( 0.0525475, 62.4891 )
@@ -533,13 +531,6 @@ spread = 60.0
 gravity = Vector2( -15, -300 )
 angular_velocity = 15.0
 
-[node name="Movement" type="Sprite" parent="."]
-scale = Vector2( 4, 4 )
-texture = ExtResource( 1 )
-vframes = 8
-hframes = 6
-frame = 19
-
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = ExtResource( 5 )
 anim_player = NodePath("../AnimationPlayer")
@@ -549,7 +540,7 @@ parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Walk/blend_position = Vector2( 0.00513923, -0.00290692 )
 
 [node name="Weapon" type="Area2D" parent="."]
-position = Vector2( 8, -40 )
+position = Vector2( -2.32323, 104 )
 monitoring = false
 monitorable = false
 collision_layer = 0
@@ -558,7 +549,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon"]
-shape = SubResource( 16 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2.32323, 0.73846 )
