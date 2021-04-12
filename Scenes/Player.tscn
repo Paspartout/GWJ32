@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Images/player/All Movements none missing.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
-[ext_resource path="res://Scripts/Sword.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Sword.gd" type="Script" id=3]
 [ext_resource path="res://Images/Smoke.png" type="Texture" id=4]
 
 [sub_resource type="AnimationNodeAnimation" id=38]
@@ -163,9 +163,6 @@ start_node = "IdleFront"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=27]
 
-[sub_resource type="CircleShape2D" id=28]
-radius = 27.8604
-
 [sub_resource type="RectangleShape2D" id=29]
 extents = Vector2( 47.8514, 65.7385 )
 
@@ -299,15 +296,11 @@ tracks/0/keys = {
 "values": [ 30, 31, 32, 33, 34, 35 ]
 }
 
+[sub_resource type="CircleShape2D" id=77]
+radius = 32.4029
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
-
-[node name="Movement" type="Sprite" parent="."]
-scale = Vector2( 4, 4 )
-texture = ExtResource( 1 )
-vframes = 8
-hframes = 6
-frame = 24
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2( 0.0525475, 62.4891 )
@@ -322,24 +315,20 @@ spread = 60.0
 gravity = Vector2( -15, -300 )
 angular_velocity = 15.0
 
+[node name="Movement" type="Sprite" parent="."]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 1 )
+vframes = 8
+hframes = 6
+frame = 24
+
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 26 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 27 )
 
-[node name="Sword" type="Area2D" parent="."]
-visible = false
-position = Vector2( 0.176773, -2.76154 )
-collision_layer = 0
-script = ExtResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword"]
-position = Vector2( 50.7252, 1.80157 )
-shape = SubResource( 28 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( -2.32323, 0.73846 )
 shape = SubResource( 29 )
 
@@ -352,4 +341,13 @@ anims/RunBack = SubResource( 34 )
 anims/RunFront = SubResource( 35 )
 anims/RunLeft = SubResource( 36 )
 anims/RunRight = SubResource( 37 )
-[connection signal="area_entered" from="Sword" to="Sword" method="_on_Area2D_area_entered"]
+
+[node name="Sword" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword"]
+position = Vector2( 79.335, -4.16351 )
+shape = SubResource( 77 )
+[connection signal="area_entered" from="Sword" to="Sword" method="_on_Sword_area_entered"]

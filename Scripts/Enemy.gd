@@ -1,15 +1,15 @@
 class_name Enemy
 extends PathFollow2D
-
 export var hp: int = 3
 export var default_speed: int = 100
 export var loot_money: int = 10
+signal killed
 
 onready var timer: Timer = $Timer
 
 var speed = default_speed
 
-signal killed(loot)
+
 
 func _ready():
 	add_to_group("enemies")
@@ -35,3 +35,6 @@ func slow(time: float, multiplier: float):
 
 func reset_speed():
 	speed = default_speed
+
+
+

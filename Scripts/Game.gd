@@ -1,6 +1,7 @@
 class_name Game
 extends Node2D
 
+
 enum State { Building, Wave }
 
 export(int) var health: int = 5 setget set_health
@@ -62,3 +63,6 @@ func _on_DamageArea_area_entered(area):
 	health -= 1
 	if health == 0:
 		get_tree().change_scene("res://Game Over.tscn")
+
+
+
