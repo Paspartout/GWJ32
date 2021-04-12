@@ -7,7 +7,6 @@
 [ext_resource path="res://UI/box_pressed.tres" type="StyleBox" id=5]
 [ext_resource path="res://UI/FontMid32.tres" type="DynamicFont" id=6]
 
-
 [sub_resource type="StyleBoxEmpty" id=1]
 
 [sub_resource type="DynamicFont" id=2]
