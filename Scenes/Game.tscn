@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scenes/TowerMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=2]
@@ -346,6 +346,10 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
+[sub_resource type="CapsuleShape2D" id=11]
+radius = 16.9731
+height = 27.8787
+
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
 money = 300
@@ -576,190 +580,42 @@ __meta__ = {
 autoplay = "Fade"
 anims/Fade = SubResource( 10 )
 
-[node name="Trees_Spritesheet4" type="Sprite" parent="."]
-position = Vector2( 2424.38, -6.01776 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet3" type="Sprite" parent="."]
-position = Vector2( 2436.36, 179.773 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet5" type="Sprite" parent="."]
-position = Vector2( 2453.6, 357.405 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet6" type="Sprite" parent="."]
-position = Vector2( 2448.35, 488.424 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet26" type="Sprite" parent="."]
-position = Vector2( 134.963, 892.967 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet27" type="Sprite" parent="."]
-position = Vector2( 152.201, 1070.6 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet28" type="Sprite" parent="."]
-position = Vector2( 146.949, 1201.62 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet7" type="Sprite" parent="."]
-position = Vector2( 2460.34, 674.214 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet8" type="Sprite" parent="."]
-position = Vector2( 2477.57, 851.846 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet9" type="Sprite" parent="."]
-position = Vector2( 2466.33, 865.997 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet10" type="Sprite" parent="."]
-position = Vector2( 2478.31, 1051.79 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet11" type="Sprite" parent="."]
-position = Vector2( 2495.55, 1229.42 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet12" type="Sprite" parent="."]
-position = Vector2( 2297.78, 1220.43 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet13" type="Sprite" parent="."]
-position = Vector2( 2091.01, 1208.44 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet14" type="Sprite" parent="."]
-position = Vector2( 1941.18, 1208.44 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet15" type="Sprite" parent="."]
-position = Vector2( 1743.4, 1199.45 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet16" type="Sprite" parent="."]
-position = Vector2( 1536.64, 1187.47 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet17" type="Sprite" parent="."]
-position = Vector2( 1362.83, 1205.45 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet18" type="Sprite" parent="."]
-position = Vector2( 1165.06, 1196.46 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet19" type="Sprite" parent="."]
-position = Vector2( 958.29, 1184.47 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet20" type="Sprite" parent="."]
-position = Vector2( 799.469, 1223.43 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet21" type="Sprite" parent="."]
-position = Vector2( 601.693, 1214.44 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet22" type="Sprite" parent="."]
-position = Vector2( 394.927, 1202.45 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet23" type="Sprite" parent="."]
-position = Vector2( 799.469, 1223.43 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet24" type="Sprite" parent="."]
-position = Vector2( 601.693, 1214.44 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
-[node name="Trees_Spritesheet25" type="Sprite" parent="."]
-position = Vector2( 394.927, 1202.45 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 11 )
-hframes = 2
-frame = 1
-
 [node name="Main_tree_spritesheet" type="Sprite" parent="."]
-position = Vector2( 1917.44, 167.49 )
-scale = Vector2( 5, 6.20797 )
+position = Vector2( 1977.73, 856.614 )
+scale = Vector2( 7, 7 )
 texture = ExtResource( 10 )
+
+[node name="Trees_Spritesheet" type="Sprite" parent="."]
+position = Vector2( 1173.5, 1027.69 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 1179.5, 976.75 )
+scale = Vector2( 6, 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -32.5227, 29.8339 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.3 )
+shape = SubResource( 11 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2( 1179.5, 976.75 )
+scale = Vector2( 6, 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2( 134.776, 21.4232 )
+scale = Vector2( 2.3, 0.4 )
+shape = SubResource( 11 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( 1179.5, 976.75 )
+scale = Vector2( 6, 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 26.2203, 30.7746 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.3 )
+shape = SubResource( 11 )
 [connection signal="area_entered" from="World/DamageArea" to="." method="_on_DamageArea_area_entered"]
