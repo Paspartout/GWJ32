@@ -118,4 +118,6 @@ attack={
 [rendering]
 
 quality/driver/driver_name="GLES2"
+gles2/compatibility/disable_half_float=true
+batching/precision/uv_contract=true
 environment/default_environment="res://default_env.tres"

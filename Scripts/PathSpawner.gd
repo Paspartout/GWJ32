@@ -5,7 +5,9 @@ signal game_finished()
 
 var enemy = preload("res://Scenes/Enemies/Enemy.tscn")
 
-onready var enemy_path: Path2D = $EnemyPath
+export var enemy_path_np: NodePath
+
+onready var enemy_path: Path2D = get_node(enemy_path_np)
 onready var wave_player: AnimationPlayer = $WavePlayer
 onready var game: Game = get_tree().root.get_node("Game")
 onready var check_timer: Timer = $CheckTimer

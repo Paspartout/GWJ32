@@ -48,7 +48,6 @@ default_speed = 150
 texture = SubResource( 1 )
 
 [node name="EnemyCollision" type="Area2D" parent="."]
-visible = false
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyCollision"]

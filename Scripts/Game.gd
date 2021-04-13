@@ -8,13 +8,14 @@ export(int) var health: int = 5 setget set_health
 export(int) var money: int = 1000 setget set_money
 var state = State.Building
 
-export var spawner_path: NodePath
+export var world_path: NodePath
 export var start_wave_button_path: NodePath
 export var ui_animations_path: NodePath
 
 onready var hp_label: Label = $HUD/WaveStats/HBoxContainer/HP
 onready var money_label: Label = $HUD/WaveStats/HBoxContainer/Money
-onready var spawner = get_node(spawner_path)
+onready var world = get_node(world_path)
+onready var spawner = world.spawner
 onready var start_wave_button: Button = get_node(start_wave_button_path)
 onready var ui_animations: AnimationPlayer = get_node(ui_animations_path)
 onready var audio_player: AudioStreamPlayer = $World/DamageArea/AudioStreamPlayer
@@ -26,6 +27,7 @@ func _ready():
 	set_money(money)
 	set_health(health)
 	start_wave_button.connect("pressed", self, "start_wave")
+	spawner = world.spawner
 	spawner.connect("wave_finished", self, "wave_finished")
 	spawner.connect("game_finished", self, "game_finished")
 
