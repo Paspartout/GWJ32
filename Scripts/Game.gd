@@ -16,9 +16,10 @@ onready var hp_label: Label = $HUD/WaveStats/HBoxContainer/HP
 onready var money_label: Label = $HUD/WaveStats/HBoxContainer/Money
 onready var world = get_node(world_path)
 onready var spawner = world.spawner
+onready var damage_area: Area2D = world.damage_area
 onready var start_wave_button: Button = get_node(start_wave_button_path)
 onready var ui_animations: AnimationPlayer = get_node(ui_animations_path)
-onready var audio_player: AudioStreamPlayer = $World/DamageArea/AudioStreamPlayer
+onready var audio_player: AudioStreamPlayer = $TreeHurtAudio
 
 const HP_STRING = "HP: %d"
 const MONEY_STRING = "Essence: %d"
@@ -30,7 +31,8 @@ func _ready():
 	spawner = world.spawner
 	spawner.connect("wave_finished", self, "wave_finished")
 	spawner.connect("game_finished", self, "game_finished")
-
+	damage_area.connect("area_entered", self, "_on_DamageArea_area_entered")
+	
 func set_health(new_heatlh):
 	health = new_heatlh
 	if hp_label:

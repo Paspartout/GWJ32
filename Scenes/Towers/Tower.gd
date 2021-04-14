@@ -3,6 +3,7 @@ class_name Tower
 extends Node2D
 
 onready var action_timer = $Timer
+onready var detection: Area2D = $Detection
 
 # The enemy that is currently targeted
 var target_enemy: Node2D
@@ -12,6 +13,8 @@ var stats: TowerStat
 
 func _ready():
 	action_timer.connect("timeout", self, "action")
+	detection.connect("area_entered", self, "_on_enemy_detected")
+	detection.connect("area_exited", self, "_on_enemy_exited")
 	action_timer.wait_time = 1/stats.action_speed
 
 func init(new_stats: TowerStat):

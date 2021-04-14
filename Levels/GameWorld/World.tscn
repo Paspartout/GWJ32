@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Levels/WorldTilemap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/PathSpawner.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/TowerSlot.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Trees/MainTree.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -238,6 +240,9 @@ extents = Vector2( 42.9933, 39.8213 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 2 )
+spawn_point_path = NodePath("SpawnPoint")
+damage_area_path = NodePath("DamageArea")
+player_scene = ExtResource( 6 )
 
 [node name="Tilemap" parent="." instance=ExtResource( 1 )]
 
@@ -276,57 +281,67 @@ anims/Wave02 = SubResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 position = Vector2( 16.4458, -14.4191 )
+scale = Vector2( 2, 2 )
 shape = SubResource( 7 )
 
-[node name="Slots" type="Node2D" parent="."]
+[node name="Objects" type="YSort" parent="."]
 
-[node name="TowerSlot" parent="Slots" instance=ExtResource( 4 )]
+[node name="MainTree" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 22, -27 )
+scale = Vector2( 2, 2 )
+
+[node name="Slots" type="YSort" parent="Objects"]
+
+[node name="TowerSlot" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( -241.485, -80.4592 )
 
-[node name="TowerSlot2" parent="Slots" instance=ExtResource( 4 )]
+[node name="TowerSlot2" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( -369.236, -80.4592 )
 
-[node name="TowerSlot5" parent="Slots" instance=ExtResource( 4 )]
+[node name="TowerSlot5" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( -241.485, -303.653 )
 
-[node name="TowerSlot6" parent="Slots" instance=ExtResource( 4 )]
+[node name="TowerSlot6" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( -241.485, -432.201 )
 
-[node name="TowerSlot7" parent="Slots" instance=ExtResource( 4 )]
+[node name="TowerSlot7" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( -369.236, -432.201 )
 
-[node name="TowerSlot8" parent="Slots" instance=ExtResource( 4 )]
+[node name="TowerSlot8" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( -80.3552, -303.653 )
 
-[node name="TowerSlot9" parent="Slots" instance=ExtResource( 4 )]
+[node name="TowerSlot9" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( 114.205, -303.653 )
 
-[node name="TowerSlot10" parent="Slots" instance=ExtResource( 4 )]
+[node name="TowerSlot10" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( 272.098, -303.653 )
 
-[node name="TowerSlot11" parent="Slots" instance=ExtResource( 4 )]
+[node name="TowerSlot11" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( 399.684, -303.653 )
 
-[node name="TowerSlot12" parent="Slots" instance=ExtResource( 4 )]
+[node name="TowerSlot12" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( 399.684, -432.201 )
 
-[node name="TowerSlot13" parent="Slots" instance=ExtResource( 4 )]
+[node name="TowerSlot13" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( 272.098, -432.201 )
 
-[node name="TowerSlot14" parent="Slots" instance=ExtResource( 4 )]
+[node name="TowerSlot14" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( 272.098, 45.6415 )
 
-[node name="TowerSlot17" parent="Slots" instance=ExtResource( 4 )]
+[node name="TowerSlot17" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( 272.098, -80.4592 )
 
-[node name="TowerSlot15" parent="Slots" instance=ExtResource( 4 )]
+[node name="TowerSlot15" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( 399.684, -80.4592 )
 
-[node name="TowerSlot16" parent="Slots" instance=ExtResource( 4 )]
+[node name="TowerSlot16" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( 399.684, 45.6415 )
 
-[node name="TowerSlot3" parent="Slots" instance=ExtResource( 4 )]
+[node name="TowerSlot3" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( -369.236, 45.6415 )
 
-[node name="TowerSlot4" parent="Slots" instance=ExtResource( 4 )]
+[node name="TowerSlot4" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( -241.485, 45.6415 )
+
+[node name="SpawnPoint" type="Position2D" parent="."]
+position = Vector2( 16, 237 )

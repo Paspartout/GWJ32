@@ -4,8 +4,9 @@ extends Tower
 export(PackedScene) var Bullet
 
 func _process(_delta):
-	if target_enemy:
-		rotation = global_position.direction_to(target_enemy.global_position).angle()
+	pass
+	#if target_enemy:
+	#	rotation = global_position.direction_to(target_enemy.global_position).angle()
 
 func action():
 	# Shoot at the target_enemy
