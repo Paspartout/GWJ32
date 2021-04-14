@@ -15,6 +15,7 @@ var built_tower_stats: TowerStat
 
 func _ready():
 	tower_click_area.monitoring = false
+	game.connect("enable_tower_building", self, "on_enable_tower_building")
 
 func _on_BuildTowerButton_pressed():
 	tower_menu.open_build_menu(self)
@@ -29,6 +30,7 @@ func place_tower(tower_stats: TowerStat):
 	
 	tower_button.visible = false
 	tower_click_area.monitoring = true
+	game.built_towers += 1
 
 func destroy_tower():
 	game.money += built_tower_stats.cost
@@ -38,6 +40,10 @@ func destroy_tower():
 
 	tower_button.visible = true
 	tower_click_area.monitoring = false
+	game.built_towers -= 1
+
+func on_enable_tower_building(enabled):
+	tower_button.disabled = !enabled
 
 func upgrade_tower():
 	# TODO

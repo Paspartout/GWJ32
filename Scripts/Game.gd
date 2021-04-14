@@ -4,8 +4,13 @@ extends Node2D
 
 enum State { Building, Wave }
 
+signal enable_tower_building(enabled)
+
 export(int) var health: int = 5 setget set_health
 export(int) var money: int = 1000 setget set_money
+
+var built_towers = 0 setget set_built_towers
+const MAX_TOWERS = 7
 var state = State.Building
 
 export var world_path: NodePath
@@ -14,6 +19,7 @@ export var ui_animations_path: NodePath
 
 onready var hp_label: Label = $HUD/WaveStats/HBoxContainer/HP
 onready var money_label: Label = $HUD/WaveStats/HBoxContainer/Money
+onready var tower_label: Label = $HUD/WaveStats/HBoxContainer/Towers
 onready var world = get_node(world_path)
 onready var spawner = world.spawner
 onready var damage_area: Area2D = world.damage_area
@@ -23,10 +29,12 @@ onready var audio_player: AudioStreamPlayer = $TreeHurtAudio
 
 const HP_STRING = "HP: %d"
 const MONEY_STRING = "Essence: %d"
+const TOWERS_STRING = "Towers: %d/%d"
 
 func _ready():
 	set_money(money)
 	set_health(health)
+	set_built_towers(built_towers)
 	start_wave_button.connect("pressed", self, "start_wave")
 	spawner = world.spawner
 	spawner.connect("wave_finished", self, "wave_finished")
@@ -42,6 +50,12 @@ func set_money(new_money):
 	money = new_money
 	if money_label:
 		money_label.text = MONEY_STRING % money
+
+func set_built_towers(new_built_towers):
+	built_towers = new_built_towers
+	if tower_label:
+		tower_label.text = TOWERS_STRING % [built_towers, MAX_TOWERS]
+	emit_signal("enable_tower_building", built_towers < MAX_TOWERS)
 
 func start_wave():
 	assert(state == State.Building)

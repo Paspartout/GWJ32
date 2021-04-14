@@ -74,7 +74,7 @@ tracks/1/keys = {
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
-money = 300
+money = 2000
 world_path = NodePath("World")
 start_wave_button_path = NodePath("HUD/BottomPanel/StartWave")
 ui_animations_path = NodePath("HUD/UiAnimations")
@@ -92,7 +92,7 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/WaveStats"]
 margin_left = 6.0
 margin_top = 4.0
-margin_right = 334.0
+margin_right = 542.0
 margin_bottom = 52.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -112,6 +112,17 @@ margin_right = 328.0
 margin_bottom = 48.0
 size_flags_horizontal = 3
 text = "Money: 123"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Towers" type="Label" parent="HUD/WaveStats/HBoxContainer"]
+margin_left = 332.0
+margin_right = 536.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+text = "Towers: 1/7"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -176,11 +187,7 @@ align = 1
 [node name="UiAnimations" type="AnimationPlayer" parent="HUD"]
 anims/GameWon = SubResource( 1 )
 
-[node name="World" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1151.49, 1081.55 )
-scale = Vector2( 2, 2 )
-
-[node name="Fade Effect" type="ColorRect" parent="."]
+[node name="Fade Effect" type="ColorRect" parent="HUD"]
 visible = false
 margin_left = -8.0
 margin_top = -5.0
@@ -191,9 +198,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Fade Effect"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Fade Effect"]
 autoplay = "Fade"
 anims/Fade = SubResource( 2 )
+
+[node name="World" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1151.49, 1081.55 )
+scale = Vector2( 2, 2 )
 
 [node name="TreeHurtAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
