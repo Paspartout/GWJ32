@@ -1,14 +1,12 @@
 extends Control
 
 var dialog = [
-	'This is Placeholder 1',
-	'This is Placeholder 2',
-	'This is Placeholder 3',
-	'This is Placeholder 4',
-	'This is Placeholder 5',
-	'This is Placeholder 6',
-	'This is Placeholder 7',
-	'This is Placeholder 8'
+	'This Forest Is Powerd By The Divine Tree',
+	'Protect It With Your Towers And your Handy Axe',
+	'Each Wave You Will Be Able To Place Another Tower',
+	'Use Them Wisely And Remember...',
+	'The Tree Must be Protected At All Costs',
+	'Use WASD To Move And Spacebar To Attack'
 	]
 
 var dialog_index = 0 

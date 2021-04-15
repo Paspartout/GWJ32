@@ -32,6 +32,7 @@ const MONEY_STRING = "Essence: %d"
 const TOWERS_STRING = "Towers: %d/%d"
 
 func _ready():
+	
 	set_money(money)
 	set_health(health)
 	set_built_towers(built_towers)
