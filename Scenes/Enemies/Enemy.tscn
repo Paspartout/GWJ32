@@ -42,7 +42,7 @@ tracks/1/keys = {
 [node name="Enemy" type="PathFollow2D"]
 cubic_interp = false
 script = ExtResource( 2 )
-default_speed = 150
+hp = 1
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = SubResource( 1 )

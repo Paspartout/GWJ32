@@ -1,31 +1,27 @@
 extends Node2D
 
 signal wave_finished()
-signal game_finished()
 
-var enemy = preload("res://Scenes/Enemies/Enemy.tscn")
+export(Array, PackedScene)var enemy_scenes = [ preload("res://Scenes/Enemies/Enemy.tscn") ]
 
-export var enemy_path_np: NodePath
+onready var enemy_path_left: Path2D = $EnemyPathLeft
+onready var enemy_path_top: Path2D = $EnemyPathTop
+onready var enemy_path_right: Path2D = $EnemyPathRight
 
-onready var enemy_path: Path2D = get_node(enemy_path_np)
 onready var wave_player: AnimationPlayer = $WavePlayer
 onready var game: Game = get_tree().root.get_node("Game")
 onready var check_timer: Timer = $CheckTimer
-
-export(Array, String) var waves: Array
-var current_wave = 0
 
 var wave_in_progress = false
 var spawning_in_progress = false
 
 func _ready():
-	assert(waves.size() > 0)
 	wave_player.connect("animation_finished", self, "spawning_stopped")
 
-func start():
+func start_wave(wave_name: String):
 	spawning_in_progress = true
 	wave_in_progress = true
-	wave_player.play(waves[current_wave])
+	wave_player.play(wave_name)
 
 func spawning_stopped(_name):
 	spawning_in_progress = false
@@ -37,20 +33,23 @@ func check_remaining_enemies():
 	if remaining_enemies == 0:
 		wave_in_progress = false
 		emit_signal("wave_finished")
-		current_wave += 1
 		check_timer.disconnect("timeout", self, "check_remaining_enemies")
 		check_timer.stop()
-		if current_wave >= waves.size():
-			emit_signal("game_finished")
 
-func spawn_enemy():
-	var new_enemy: Enemy = enemy.instance()
+func spawn_enemy(enemy_scene: PackedScene, path: Path2D):
+	var new_enemy: Enemy = enemy_scene.instance()
 	new_enemy.connect("killed", self, "loot")
 	new_enemy.add_to_group("enemies")
-	enemy_path.add_child(new_enemy)
-	
+	path.add_child(new_enemy)
+
+func spawn_top(enemy_num: int):
+	spawn_enemy(enemy_scenes[enemy_num], enemy_path_top)
+
+func spawn_left(enemy_num: int):
+	spawn_enemy(enemy_scenes[enemy_num], enemy_path_left)
+
+func spawn_right(enemy_num: int):
+	spawn_enemy(enemy_scenes[enemy_num], enemy_path_right)
+
 func loot(money):
 	game.money += money
-
-func _on_spawner_timeout() -> void:
-	spawn_enemy()

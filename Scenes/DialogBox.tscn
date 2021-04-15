@@ -22,7 +22,7 @@ tracks/0/keys = {
 "values": [ Vector2( 421, 125 ), Vector2( 421, 140 ) ]
 }
 
-[node name="TextBox" type="Control"]
+[node name="DialogBox" type="Control"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5

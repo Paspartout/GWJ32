@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Levels/WorldTilemap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=2]
@@ -23,6 +23,7 @@ _data = {
 }
 
 [sub_resource type="Animation" id=4]
+resource_name = "spam_wave"
 length = 10.0
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -108,48 +109,8 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=5]
-length = 10.0
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2, 4, 6.3, 6.5, 6.7, 8.5, 8.7, 8.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "spawn_enemy"
-}, {
-"args": [  ],
-"method": "spawn_enemy"
-}, {
-"args": [  ],
-"method": "spawn_enemy"
-}, {
-"args": [  ],
-"method": "spawn_enemy"
-}, {
-"args": [  ],
-"method": "spawn_enemy"
-}, {
-"args": [  ],
-"method": "spawn_enemy"
-}, {
-"args": [  ],
-"method": "spawn_enemy"
-}, {
-"args": [  ],
-"method": "spawn_enemy"
-}, {
-"args": [  ],
-"method": "spawn_enemy"
-} ]
-}
-
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
+resource_name = "wave1_tutorial_meele"
 length = 20.0
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -158,80 +119,298 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 2.2, 2.4, 2.6, 5, 5.2, 5.4, 7.2, 7.4, 7.6, 9.5, 9.7, 9.9, 10.1, 10.3, 10.5, 10.7, 10.9, 11.1, 11.3, 11.5, 11.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 2, 4.1, 6, 8.1, 8.4, 8.7, 10.1, 10.4, 10.7, 12.3, 12.6, 12.9, 13.2, 13.5, 16, 16.3, 16.6, 16.9, 17.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "wave2_tutorial_towers"
+length = 20.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4.1, 6, 8.1, 8.4, 8.7, 10.1, 10.4, 10.7, 12.3, 12.6, 12.9, 13.2, 13.5, 16, 16.3, 16.6, 16.9, 17.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
 }, {
-"args": [  ],
-"method": "spawn_enemy"
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+} ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "wave3"
+length = 25.0
+step = 0.5
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 10, 10.5, 11, 11.5, 12, 23, 23.5, 24, 24.5, 25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ 0 ],
+"method": "spawn_left"
+}, {
+"args": [ 0 ],
+"method": "spawn_left"
+}, {
+"args": [ 0 ],
+"method": "spawn_left"
+}, {
+"args": [ 0 ],
+"method": "spawn_left"
+}, {
+"args": [ 0 ],
+"method": "spawn_left"
+}, {
+"args": [ 0 ],
+"method": "spawn_left"
+}, {
+"args": [ 0 ],
+"method": "spawn_left"
+}, {
+"args": [ 0 ],
+"method": "spawn_left"
+}, {
+"args": [ 0 ],
+"method": "spawn_left"
+}, {
+"args": [ 0 ],
+"method": "spawn_left"
+}, {
+"args": [ 0 ],
+"method": "spawn_left"
+}, {
+"args": [ 0 ],
+"method": "spawn_left"
+}, {
+"args": [ 0 ],
+"method": "spawn_left"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 3, 3.5, 4, 13, 13.5, 14, 14.5, 15, 23, 23.5, 24, 24.5, 25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 0 ],
+"method": "spawn_top"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 6, 6.5, 7, 16, 16.5, 17, 17.5, 18, 23, 23.5, 24, 24.5, 25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ 0 ],
+"method": "spawn_right"
+}, {
+"args": [ 0 ],
+"method": "spawn_right"
+}, {
+"args": [ 0 ],
+"method": "spawn_right"
+}, {
+"args": [ 0 ],
+"method": "spawn_right"
+}, {
+"args": [ 0 ],
+"method": "spawn_right"
+}, {
+"args": [ 0 ],
+"method": "spawn_right"
+}, {
+"args": [ 0 ],
+"method": "spawn_right"
+}, {
+"args": [ 0 ],
+"method": "spawn_right"
+}, {
+"args": [ 0 ],
+"method": "spawn_right"
+}, {
+"args": [ 0 ],
+"method": "spawn_right"
+}, {
+"args": [ 0 ],
+"method": "spawn_right"
+}, {
+"args": [ 0 ],
+"method": "spawn_right"
+}, {
+"args": [ 0 ],
+"method": "spawn_right"
 } ]
 }
 
@@ -252,8 +431,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
-enemy_path_np = NodePath("EnemyPathLeft")
-waves = [ "SpamWave", "Wave02", "Wave02" ]
 
 [node name="EnemyPathLeft" type="Path2D" parent="PathSpawner"]
 position = Vector2( -8.47388, -20.0661 )
@@ -271,9 +448,10 @@ scale = Vector2( 1.37555, 1.28728 )
 curve = SubResource( 3 )
 
 [node name="WavePlayer" type="AnimationPlayer" parent="PathSpawner"]
-anims/SpamWave = SubResource( 4 )
-anims/Wave01 = SubResource( 5 )
-anims/Wave02 = SubResource( 6 )
+anims/spam_wave = SubResource( 4 )
+anims/wave1_tutorial_meele = SubResource( 8 )
+anims/wave2_tutorial_towers = SubResource( 5 )
+anims/wave3 = SubResource( 9 )
 
 [node name="CheckTimer" type="Timer" parent="PathSpawner"]
 

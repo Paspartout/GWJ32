@@ -15,7 +15,8 @@ func _ready():
 	action_timer.connect("timeout", self, "action")
 	detection.connect("area_entered", self, "_on_enemy_detected")
 	detection.connect("area_exited", self, "_on_enemy_exited")
-	action_timer.wait_time = 1/stats.action_speed
+	action_timer.wait_time = (1/stats.action_speed) + rand_range(0.05, 0.2)
+	
 
 func init(new_stats: TowerStat):
 	stats = new_stats
@@ -35,7 +36,6 @@ func _on_enemy_detected(enemy_area: Area2D) -> void:
 	if action_timer.is_stopped():
 		#call_deferred("action")
 		action_timer.start()
-		
 
 func _on_enemy_exited(enemy_area: Area2D):
 	var enemy = enemy_area.get_parent()

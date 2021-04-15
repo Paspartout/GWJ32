@@ -509,6 +509,7 @@ tracks/1/keys = {
 collision_layer = 4
 collision_mask = 8
 script = ExtResource( 2 )
+speed = 500.0
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
@@ -574,6 +575,5 @@ limit_left = 0
 limit_top = 0
 limit_right = 2364
 limit_bottom = 2232
-limit_smoothed = true
 smoothing_enabled = true
 [connection signal="area_entered" from="Weapon" to="." method="_on_Weapon_hit"]

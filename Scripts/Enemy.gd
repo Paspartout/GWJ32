@@ -33,7 +33,6 @@ func hurt(damage: int):
 		queue_free()
 		emit_signal("killed", loot_money)
 
-
 func slow(time: float, multiplier: float):
 	speed = default_speed * multiplier
 	if !slow_timer.is_connected("timeout", self, "reset_speed"):

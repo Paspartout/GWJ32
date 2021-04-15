@@ -7,11 +7,13 @@ enum State { Building, Wave }
 signal enable_tower_building(enabled)
 
 export(int) var health: int = 5 setget set_health
-export(int) var money: int = 1000 setget set_money
+export(int) var money: int = 0 setget set_money
 
 var built_towers = 0 setget set_built_towers
 const MAX_TOWERS = 7
 var state = State.Building
+var current_wave = 0
+export(Array, String) var waves: Array
 
 export var world_path: NodePath
 export var start_wave_button_path: NodePath
@@ -20,6 +22,9 @@ export var ui_animations_path: NodePath
 onready var hp_label: Label = $HUD/WaveStats/HBoxContainer/HP
 onready var money_label: Label = $HUD/WaveStats/HBoxContainer/Money
 onready var tower_label: Label = $HUD/WaveStats/HBoxContainer/Towers
+onready var msg_box: Control = $HUD/MsgBox
+onready var dialog_box: DialogBox = $HUD/DialogBox
+
 onready var world = get_node(world_path)
 onready var spawner = world.spawner
 onready var damage_area: Area2D = world.damage_area
@@ -32,16 +37,17 @@ const MONEY_STRING = "Essence: %d"
 const TOWERS_STRING = "Towers: %d/%d"
 
 func _ready():
-	
+	assert(waves.size() > 0)
+
 	set_money(money)
 	set_health(health)
 	set_built_towers(built_towers)
+	msg_box.visible = false
 	start_wave_button.connect("pressed", self, "start_wave")
 	spawner = world.spawner
 	spawner.connect("wave_finished", self, "wave_finished")
-	spawner.connect("game_finished", self, "game_finished")
 	damage_area.connect("area_entered", self, "_on_DamageArea_area_entered")
-	
+
 func set_health(new_heatlh):
 	health = new_heatlh
 	if hp_label:
@@ -64,12 +70,38 @@ func start_wave():
 	start_wave_button.disabled = true
 	start_wave_button.release_focus()
 	state = State.Wave
-	spawner.start()
+	spawner.start_wave(waves[current_wave])
 
-func wave_finished():
+func post_wave(wave: String):
+	match wave:
+		"wave1_tutorial_meele":
+			var dialog = dialog_box.show_multiline([
+				"Good work! You got some essence now!",
+				"You can use that essence to build towers."
+			])
+			# This waits for the dialog to be skipped/read
+			yield(dialog, "completed")
+		"wave2_tutorial_towers":
+			var dialog = dialog_box.show_multiline([
+				"Nice! Enemies can come from other sides too.",
+				"Watch out and place towers wisely.",
+				"Also remember you can sell towers.",
+			])
+			yield(dialog, "completed")
+		_:
+			push_warning("No post_wave action for wave %s" % wave)
+	next_wave()
+
+func next_wave():
+	current_wave += 1
 	start_wave_button.disabled = false
 	start_wave_button.text = "Start Wave"
 	state = State.Building
+	if current_wave >= waves.size():
+		game_finished()
+
+func wave_finished():
+	post_wave(waves[current_wave])
 
 func game_finished():
 	start_wave_button.disabled = false

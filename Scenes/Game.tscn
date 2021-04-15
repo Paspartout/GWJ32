@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=2]
 [ext_resource path="res://Levels/GameWorld/World.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sounds/GetThrough.wav" type="AudioStream" id=4]
-[ext_resource path="res://Scenes/TextBox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/DialogBox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/theme.tres" type="Theme" id=7]
 
 [sub_resource type="Animation" id=1]
@@ -75,7 +75,7 @@ tracks/1/keys = {
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
-money = 2000
+waves = [ "wave1_tutorial_meele", "wave2_tutorial_towers", "wave3" ]
 world_path = NodePath("World")
 start_wave_button_path = NodePath("HUD/BottomPanel/StartWave")
 ui_animations_path = NodePath("HUD/UiAnimations")
@@ -161,6 +161,7 @@ margin_bottom = 99.0
 text = "Start Wave"
 
 [node name="MsgBox" type="PanelContainer" parent="HUD"]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
@@ -202,7 +203,7 @@ __meta__ = {
 autoplay = "Fade"
 anims/Fade = SubResource( 2 )
 
-[node name="TextBox" parent="HUD" instance=ExtResource( 5 )]
+[node name="DialogBox" parent="HUD" instance=ExtResource( 5 )]
 
 [node name="World" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1151.49, 1081.55 )
