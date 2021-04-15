@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/EquipmentPro.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Images/Sprite-0001.png" type="Texture" id=2]
+[ext_resource path="res://DialougeBox.gd" type="Script" id=3]
+[ext_resource path="res://UI/TextBoxArt.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Hover"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 840, 184 ), Vector2( 840, 232 ), Vector2( 840, 184 ) ]
+}
+
+[node name="Text" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dialog" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -440.0
+margin_top = -368.0
+margin_right = 448.0
+margin_bottom = -88.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="dialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -8.0
+texture = ExtResource( 4 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="dialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 16.0
+margin_right = -22.0
+margin_bottom = -14.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "This is Placeholder Text"
+text = "This is Placeholder Text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Indicator" type="Sprite" parent="dialog"]
+position = Vector2( 840, 207.336 )
+scale = Vector2( 1.666, 1.435 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="dialog/Indicator"]
+autoplay = "Hover"
+anims/Hover = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="dialog"]
+[connection signal="tween_completed" from="dialog/Tween" to="dialog" method="_on_Tween_tween_completed"]
