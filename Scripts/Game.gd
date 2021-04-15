@@ -1,7 +1,6 @@
 class_name Game
 extends Node2D
 
-
 enum State { Building, Wave }
 
 signal enable_tower_building(enabled)
@@ -24,6 +23,7 @@ onready var money_label: Label = $HUD/WaveStats/HBoxContainer/Money
 onready var tower_label: Label = $HUD/WaveStats/HBoxContainer/Towers
 onready var msg_box: Control = $HUD/MsgBox
 onready var dialog_box: DialogBox = $HUD/DialogBox
+onready var sfx_player: AudioStreamPlayer = $SfxPlayer
 
 onready var world = get_node(world_path)
 onready var spawner = world.spawner
@@ -31,6 +31,8 @@ onready var damage_area: Area2D = world.damage_area
 onready var start_wave_button: Button = get_node(start_wave_button_path)
 onready var ui_animations: AnimationPlayer = get_node(ui_animations_path)
 onready var audio_player: AudioStreamPlayer = $TreeHurtAudio
+onready var tween: Tween = $Tween
+onready var music_lpf: AudioEffectLowPassFilter = AudioServer.get_bus_effect(1, 0)
 
 const HP_STRING = "HP: %d"
 const MONEY_STRING = "Essence: %d"
@@ -71,6 +73,15 @@ func start_wave():
 	start_wave_button.release_focus()
 	state = State.Wave
 	spawner.start_wave(waves[current_wave])
+	sfx_player.play()
+
+	AudioServer.set_bus_effect_enabled(1, 0, true)
+	tween.interpolate_property(music_lpf, "cutoff_hz", null, 22050, 1,
+		Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+	tween.start()
+	yield(tween, "tween_all_completed")
+	AudioServer.set_bus_effect_enabled(1, 0, false)
+
 
 func post_wave(wave: String):
 	match wave:
@@ -102,6 +113,10 @@ func next_wave():
 
 func wave_finished():
 	post_wave(waves[current_wave])
+	AudioServer.set_bus_effect_enabled(1, 0, true)
+	tween.interpolate_property(music_lpf, "cutoff_hz", null, 1000, 1,
+		Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+	tween.start()
 
 func game_finished():
 	start_wave_button.disabled = false

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tree_hurt.ogg-21a403765892a44390c26fbc19a2d254.oggstr"
+
+[deps]
+
+source_file="res://Sounds/tree_hurt.ogg"
+dest_files=[ "res://.import/tree_hurt.ogg-21a403765892a44390c26fbc19a2d254.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

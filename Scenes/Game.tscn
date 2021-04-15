@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/TowerMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=2]
 [ext_resource path="res://Levels/GameWorld/World.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sounds/GetThrough.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/tree_hurt.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Scenes/DialogBox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sounds/start_wave.ogg" type="AudioStream" id=6]
 [ext_resource path="res://UI/theme.tres" type="Theme" id=7]
 
 [sub_resource type="Animation" id=1]
@@ -211,3 +212,9 @@ scale = Vector2( 2, 2 )
 
 [node name="TreeHurtAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "Sounds"
+
+[node name="Tween" type="Tween" parent="."]

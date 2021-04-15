@@ -8,17 +8,31 @@ export var default_speed: int = 100
 export var loot_money: int = 10
 
 onready var slow_timer: Timer = $SlowTimer
-onready var sprite: Sprite = $Sprite
+onready var sprite: AnimatedSprite = $Sprite
 onready var animation: AnimationPlayer = $AnimationPlayer
-onready var audio_player = $AudioStreamPlayer
+onready var audio_player = $HurtSoundPlayer
 
 var speed
+
+var last_position: Vector2
 
 func _ready():
 	add_to_group("enemies")
 	speed = default_speed
 
 func _process(delta):
+	var direction = (last_position - position).normalized()
+	last_position = position
+	
+	if direction.y < -0.5:
+		sprite.animation = "down"
+	elif direction.y > 0.5:
+		sprite.animation = "up"
+	elif direction.x > 0.5:
+		sprite.animation = "left"
+	elif direction.x < -0.5:
+		sprite.animation = "right"
+
 	set_offset(get_offset() + speed * delta)
  
 	if(loop == false and get_unit_offset() == 1):

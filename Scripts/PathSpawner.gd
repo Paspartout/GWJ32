@@ -12,6 +12,9 @@ onready var wave_player: AnimationPlayer = $WavePlayer
 onready var game: Game = get_tree().root.get_node("Game")
 onready var check_timer: Timer = $CheckTimer
 
+# TODO: Figure out Ysorting: https://github.com/godotengine/godot/issues/28990
+# onready var enemies_node: Node2D = $Enemies
+
 var wave_in_progress = false
 var spawning_in_progress = false
 
@@ -40,6 +43,8 @@ func spawn_enemy(enemy_scene: PackedScene, path: Path2D):
 	var new_enemy: Enemy = enemy_scene.instance()
 	new_enemy.connect("killed", self, "loot")
 	new_enemy.add_to_group("enemies")
+	# enemies_node.add_child(new_enemy)
+	
 	path.add_child(new_enemy)
 
 func spawn_top(enemy_num: int):
