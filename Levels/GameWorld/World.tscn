@@ -110,7 +110,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=5]
 resource_name = "wave1_tutorial_meele"
 length = 20.0
 tracks/0/type = "method"
@@ -185,8 +185,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "wave2_tutorial_towers"
+[sub_resource type="Animation" id=6]
 length = 20.0
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -260,7 +259,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 resource_name = "wave3"
 length = 25.0
 step = 0.5
@@ -415,7 +414,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 42.9933, 39.8213 )
 
 [node name="World" type="Node2D"]
@@ -450,9 +449,9 @@ curve = SubResource( 3 )
 
 [node name="WavePlayer" type="AnimationPlayer" parent="PathSpawner"]
 anims/spam_wave = SubResource( 4 )
-anims/wave1_tutorial_meele = SubResource( 8 )
-anims/wave2_tutorial_towers = SubResource( 5 )
-anims/wave3 = SubResource( 9 )
+anims/wave1_tutorial_meele = SubResource( 5 )
+anims/wave2_tutorial_towers = SubResource( 6 )
+anims/wave3 = SubResource( 7 )
 
 [node name="CheckTimer" type="Timer" parent="PathSpawner"]
 
@@ -461,7 +460,7 @@ anims/wave3 = SubResource( 9 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 position = Vector2( 16.4458, -14.4191 )
 scale = Vector2( 2, 2 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="Objects" type="YSort" parent="."]
 
