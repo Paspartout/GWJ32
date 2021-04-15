@@ -1,18 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://UI/EquipmentPro.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Images/Sprite-0001.png" type="Texture" id=2]
+[ext_resource path="res://UI/FontBig48.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Images/Arrow.png" type="Texture" id=2]
 [ext_resource path="res://DialougeBox.gd" type="Script" id=3]
-[ext_resource path="res://UI/TextBoxArt.png" type="Texture" id=4]
 [ext_resource path="res://UI/theme.tres" type="Theme" id=5]
 
-[sub_resource type="DynamicFont" id=1]
-size = 33
-font_data = ExtResource( 1 )
-
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Hover"
-length = 0.6
+length = 0.8
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -21,53 +16,41 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.20617 ),
+"times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 392, 120 ), Vector2( 392, 144 ) ]
+"values": [ Vector2( 421, 125 ), Vector2( 421, 140 ) ]
 }
 
-[node name="Text" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="dialog" type="Control" parent="."]
+[node name="TextBox" type="Control"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -632.0
-margin_top = -720.0
-margin_right = -200.0
-margin_bottom = -560.0
+margin_left = -216.5
+margin_top = -160.0
+margin_right = 216.5
 script = ExtResource( 3 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="dialog"]
+[node name="Panel" type="PanelContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -8.0
 theme = ExtResource( 5 )
-texture = ExtResource( 4 )
-stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="dialog"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 12.0
-margin_right = -19.0
-margin_bottom = -13.0
-custom_fonts/normal_font = SubResource( 1 )
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 435.0
+margin_bottom = 156.0
+size_flags_horizontal = 3
+custom_fonts/normal_font = ExtResource( 1 )
 bbcode_enabled = true
 bbcode_text = "This is Placeholder Text"
 text = "This is Placeholder Text"
@@ -75,14 +58,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Indicator" type="Sprite" parent="dialog"]
-position = Vector2( 392, 142.747 )
-scale = Vector2( 0.872, 0.64 )
+[node name="Indicator" type="Sprite" parent="Panel"]
+position = Vector2( 421, 130.815 )
 texture = ExtResource( 2 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="dialog/Indicator"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Indicator"]
 autoplay = "Hover"
-anims/Hover = SubResource( 2 )
+anims/Hover = SubResource( 1 )
 
-[node name="Tween" type="Tween" parent="dialog"]
-[connection signal="tween_completed" from="dialog/Tween" to="dialog" method="_on_Tween_tween_completed"]
+[node name="Tween" type="Tween" parent="."]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

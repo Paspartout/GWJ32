@@ -161,7 +161,6 @@ margin_bottom = 99.0
 text = "Start Wave"
 
 [node name="MsgBox" type="PanelContainer" parent="HUD"]
-visible = false
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
@@ -203,15 +202,11 @@ __meta__ = {
 autoplay = "Fade"
 anims/Fade = SubResource( 2 )
 
+[node name="TextBox" parent="HUD" instance=ExtResource( 5 )]
+
 [node name="World" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1151.49, 1081.55 )
 scale = Vector2( 2, 2 )
 
 [node name="TreeHurtAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-
-[node name="Text" parent="." instance=ExtResource( 5 )]
-margin_left = 1608.0
-margin_top = 1320.0
-margin_right = 1608.0
-margin_bottom = 1320.0
