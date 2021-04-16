@@ -5,7 +5,6 @@
 [ext_resource path="res://Scripts/DialougeBox.gd" type="Script" id=3]
 [ext_resource path="res://UI/theme.tres" type="Theme" id=5]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "Hover"
 length = 0.8
@@ -17,10 +16,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 421, 125 ), Vector2( 421, 140 ) ]
+"values": [ Vector2( 680, 96 ), Vector2( 680, 136 ) ]
 }
 
 [node name="DialogBox" type="Control"]
@@ -28,9 +27,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -216.5
-margin_top = -160.0
-margin_right = 216.5
+margin_left = -376.0
+margin_top = -176.0
+margin_right = 320.0
+margin_bottom = -16.0
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -48,7 +48,7 @@ __meta__ = {
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
 margin_left = 6.0
 margin_top = 4.0
-margin_right = 435.0
+margin_right = 698.0
 margin_bottom = 156.0
 size_flags_horizontal = 3
 custom_fonts/normal_font = ExtResource( 1 )
@@ -60,7 +60,7 @@ __meta__ = {
 }
 
 [node name="Indicator" type="Sprite" parent="Panel"]
-position = Vector2( 421, 130.815 )
+position = Vector2( 680, 115.139 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Indicator"]

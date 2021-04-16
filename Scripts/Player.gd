@@ -67,7 +67,7 @@ func _on_Weapon_hit(area: Area2D):
 # Set variable called shake
 var shake = 0;
 # Set magnitude of the shake
-var shake_magnitude = 15;
+var shake_magnitude = 7;
  
  
 
