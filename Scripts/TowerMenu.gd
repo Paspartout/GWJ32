@@ -23,7 +23,9 @@ func _ready():
 	tower_button_stats = create_buttons(Towers.all_towers)
 	for tb in tower_button_stats.values():
 		tower_button_container.add_child(tb)
-	update_build_buttons()
+	update_build_buttons(game.money)
+	
+	game.connect("money_changed", self, "update_build_buttons")
 
 func create_buttons(tower_stats: Array) -> Dictionary:
 	var created_buttons = {}
@@ -36,10 +38,10 @@ func create_buttons(tower_stats: Array) -> Dictionary:
 		created_buttons[tower] = tower_button
 	return created_buttons
 
-func update_build_buttons():
+func update_build_buttons(money_available: int):
 	for stat in tower_button_stats.keys():
 		var button = tower_button_stats[stat]
-		button.disabled = stat.cost > game.money
+		button.disabled = stat.cost > money_available
 
 func tower_button_pressed(tower: TowerStat):
 	emit_signal("tower_selected", tower)
@@ -64,7 +66,7 @@ func open_tower_menu(slot):
 	sell_button.disabled = false
 
 	selected_slot = slot
-	update_build_buttons()
+	update_build_buttons(game.money)
 	
 	visible = true
 
@@ -79,7 +81,7 @@ func open_build_menu(slot):
 	sell_button.disabled = true
 
 	selected_slot = slot
-	update_build_buttons()
+	update_build_buttons(game.money)
 	self.connect("tower_selected", slot, "place_tower", [], CONNECT_ONESHOT)
 	
 	visible = true
