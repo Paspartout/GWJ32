@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=9 format=2]
+[gd_resource type="Theme" load_steps=10 format=2]
 
 [ext_resource path="res://UI/EquipmentPro.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI/box_normal.tres" type="StyleBox" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://UI/box_focus.tres" type="StyleBox" id=4]
 [ext_resource path="res://UI/box_pressed.tres" type="StyleBox" id=5]
 [ext_resource path="res://UI/FontMid32.tres" type="DynamicFont" id=6]
+[ext_resource path="res://UI/grabber.tres" type="Texture" id=7]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -26,6 +27,13 @@ Button/styles/focus = ExtResource( 4 )
 Button/styles/hover = ExtResource( 3 )
 Button/styles/normal = ExtResource( 2 )
 Button/styles/pressed = ExtResource( 5 )
+HSlider/icons/grabber = ExtResource( 7 )
+HSlider/icons/grabber_disabled = ExtResource( 7 )
+HSlider/icons/grabber_highlight = ExtResource( 7 )
+HSlider/icons/tick = null
+HSlider/styles/grabber_area = ExtResource( 3 )
+HSlider/styles/grabber_area_highlight = ExtResource( 5 )
+HSlider/styles/slider = ExtResource( 2 )
 Panel/styles/panel = ExtResource( 2 )
 PanelContainer/styles/panel = ExtResource( 2 )
 TooltipLabel/colors/font_color = Color( 1, 1, 1, 1 )
