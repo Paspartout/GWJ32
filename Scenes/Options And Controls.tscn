@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://BackOptions.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/BackOptions.gd" type="Script" id=1]
 [ext_resource path="res://Images/Spacebar.png" type="Texture" id=2]
 [ext_resource path="res://Images/ArrowKeys.png" type="Texture" id=3]
 [ext_resource path="res://Images/WASD keys .png" type="Texture" id=4]
@@ -65,6 +65,9 @@ texture = ExtResource( 3 )
 [node name="Labels" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="Labels"]
 margin_left = 680.0
@@ -83,6 +86,17 @@ margin_right = 615.0
 margin_bottom = 100.0
 custom_fonts/font = ExtResource( 5 )
 text = "Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="Labels"]
+margin_left = 16.0
+margin_top = 192.0
+margin_right = 423.0
+margin_bottom = 292.0
+custom_fonts/font = ExtResource( 5 )
+text = "Volume :"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -117,6 +131,18 @@ margin_right = 1079.0
 margin_bottom = 652.0
 custom_fonts/font = ExtResource( 5 )
 text = "Attack :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="."]
+margin_left = 152.0
+margin_top = 232.0
+margin_right = 488.0
+margin_bottom = 312.0
+theme = ExtResource( 6 )
+min_value = -24.0
+max_value = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -8,4 +8,4 @@ func _on_Exit_pressed() -> void:
 
 
 func _on_Button_pressed() -> void:
-	get_tree().change_scene("res://Options And Controls.tscn")
+	get_tree().change_scene("res://Scenes/Options And Controls.tscn")

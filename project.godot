@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Control",
 "class": "DialogBox",
 "language": "GDScript",
-"path": "res://DialougeBox.gd"
+"path": "res://Scripts/DialougeBox.gd"
 }, {
 "base": "PathFollow2D",
 "class": "Enemy",

@@ -17,6 +17,7 @@ var state = State.Move
 
 func _ready():
 	animation_tree.active = true
+	set_process(true);
 
 func move_state(delta):
 	var input_vec = Vector2.ZERO
@@ -46,6 +47,8 @@ func attack_state(delta):
 	pass
 
 func _physics_process(delta):
+	$Camera2D.offset = Vector2(rand_range(-shake, shake), rand_range(-shake, shake));
+	shake *= 0.9;
 	match state:
 		State.Move:
 			move_state(delta)
@@ -53,6 +56,19 @@ func _physics_process(delta):
 			attack_state(delta)
 
 func _on_Weapon_hit(area: Area2D):
+	shake = shake_magnitude
 	var enemy = area.get_parent()
 	if enemy.has_method("hurt"):
 		enemy.hurt(damage)
+
+
+
+
+# Set variable called shake
+var shake = 0;
+# Set magnitude of the shake
+var shake_magnitude = 15;
+ 
+ 
+
+#
