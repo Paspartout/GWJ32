@@ -68,14 +68,14 @@ _global_script_class_icons={
 
 [application]
 
-config/name="The Tower Forest"
-config/description="Defend the divine tree in a forest by placing only 7 trees at once!"
+config/name="Tower Def"
 run/main_scene="res://Scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Towers="*res://Scenes/Towers/Towers.tscn"
+Pause="*res://Pause.tscn"
 
 [debug]
 
