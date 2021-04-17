@@ -19,3 +19,9 @@ func set_visible(is_visible):
 	for node in get_children():
 		node.visible = is_visible
 
+
+
+func _on_Button2_pressed() -> void:
+	get_tree().change_scene("res://Scenes/MainMenu.tscn")
+	get_tree().paused = false
+	set_visible(false)
