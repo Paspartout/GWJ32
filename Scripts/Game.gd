@@ -4,6 +4,7 @@ extends Node2D
 enum State { Building, Wave }
 
 signal enable_tower_building(enabled)
+signal money_changed(new_value)
 
 export(int) var health: int = 5 setget set_health
 export(int) var money: int = 0 setget set_money
@@ -57,6 +58,7 @@ func set_health(new_heatlh):
 
 func set_money(new_money):
 	money = new_money
+	emit_signal("money_changed", money)
 	if money_label:
 		money_label.text = MONEY_STRING % money
 

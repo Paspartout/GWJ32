@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Levels/WorldTilemap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Scenes/Trees/MainTree.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Music/combat_track.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Scenes/Trees/Tree1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Trees/Tree2.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -523,6 +525,86 @@ position = Vector2( -369.236, 45.6415 )
 
 [node name="TowerSlot4" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( -241.485, 45.6415 )
+
+[node name="Tree1" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( -369, 224 )
+scale = Vector2( 2, 2 )
+
+[node name="Tree2" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( -188, 394 )
+scale = Vector2( 2, 2 )
+
+[node name="Tree3" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( 208, 329 )
+scale = Vector2( 2, 2 )
+
+[node name="Tree6" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( -80, -412 )
+scale = Vector2( 2, 2 )
+
+[node name="Tree7" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 126, -404 )
+scale = Vector2( 2, 2 )
+
+[node name="Tree8" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( -60, -174 )
+scale = Vector2( 2, 2 )
+
+[node name="Tree10" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 529, -432 )
+scale = Vector2( 2, 2 )
+
+[node name="Tree11" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 118, 199 )
+scale = Vector2( 2, 2 )
+
+[node name="Tree12" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( -157, 216 )
+scale = Vector2( 2, 2 )
+
+[node name="Tree13" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( -376, 394 )
+scale = Vector2( 2, 2 )
+
+[node name="Tree14" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 312, 444 )
+scale = Vector2( 2, 2 )
+
+[node name="Tree15" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( -36, 329 )
+scale = Vector2( 2, 2 )
+
+[node name="Tree16" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 339, 257 )
+scale = Vector2( 2, 2 )
+
+[node name="Tree17" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 339, -166 )
+scale = Vector2( 2, 2 )
+
+[node name="Tree18" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( -486, -311 )
+scale = Vector2( 2, 2 )
+
+[node name="Tree4" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( 465, 143 )
+scale = Vector2( 2, 2 )
+
+[node name="Tree5" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( 465, 143 )
+scale = Vector2( 2, 2 )
+
+[node name="Tree9" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( 134, -166 )
+scale = Vector2( 2, 2 )
+
+[node name="Tree19" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( -471, -459 )
+scale = Vector2( 2, 2 )
+
+[node name="Tree20" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( -305, -166 )
+scale = Vector2( 2, 2 )
 
 [node name="SpawnPoint" type="Position2D" parent="."]
 position = Vector2( 16, 237 )
