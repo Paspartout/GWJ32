@@ -8,6 +8,8 @@ var facingDirection : Vector2 = Vector2()
 onready var animation_player: AnimationPlayer = $AnimationPlayer
 onready var animation_tree: AnimationTree = $AnimationTree
 onready var state_machine = animation_tree.get("parameters/playback")
+onready var camera = $Camera2D
+
 
 enum State {
 	Move,
@@ -46,9 +48,12 @@ func attack_finished():
 func attack_state(delta):
 	pass
 
+# Set variable called shake
+var shake = 0;
+# Set magnitude of the shake
+var shake_magnitude = 7;
+
 func _physics_process(delta):
-	$Camera2D.offset = Vector2(rand_range(-shake, shake), rand_range(-shake, shake));
-	shake *= 0.9;
 	match state:
 		State.Move:
 			move_state(delta)
@@ -56,19 +61,7 @@ func _physics_process(delta):
 			attack_state(delta)
 
 func _on_Weapon_hit(area: Area2D):
-	shake = shake_magnitude
 	var enemy = area.get_parent()
 	if enemy.has_method("hurt"):
+		camera.shake(3)
 		enemy.hurt(damage)
-
-
-
-
-# Set variable called shake
-var shake = 0;
-# Set magnitude of the shake
-var shake_magnitude = 7;
- 
- 
-
-#

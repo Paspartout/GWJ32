@@ -1,5 +1,5 @@
 class_name Enemy
-extends PathFollow2D
+extends Node2D
 
 signal killed(loot)
 
@@ -14,6 +14,7 @@ onready var audio_player = $HurtSoundPlayer
 
 var speed
 
+var path_follower: PathFollow2D
 var last_position: Vector2
 
 func _ready():
@@ -33,9 +34,9 @@ func _process(delta):
 	elif direction.x < -0.5:
 		sprite.animation = "right"
 
-	set_offset(get_offset() + speed * delta)
+	path_follower.set_offset(path_follower.get_offset() + speed * delta)
  
-	if(loop == false and get_unit_offset() == 1):
+	if(path_follower.get_unit_offset() == 1):
 		queue_free()
 
 func hurt(damage: int):
@@ -43,9 +44,12 @@ func hurt(damage: int):
 	animation.play("Hurt")
 	hp -= damage
 	if hp <= 0:
+		# TODO: Die sound?
+		visible = false
+		$EnemyCollision.set_deferred("monitorable", false)
+		emit_signal("killed", loot_money)
 		yield(audio_player, "finished")
 		queue_free()
-		emit_signal("killed", loot_money)
 
 func slow(time: float, multiplier: float):
 	speed = default_speed * multiplier
@@ -56,6 +60,3 @@ func slow(time: float, multiplier: float):
 
 func reset_speed():
 	speed = default_speed
-
-
-

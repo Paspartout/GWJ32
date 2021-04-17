@@ -40,7 +40,7 @@ margin_bottom = 144.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
-text = "7 Tower Forest"
+text = "The Tower Forest"
 align = 1
 valign = 1
 __meta__ = {
@@ -102,7 +102,7 @@ margin_bottom = 176.0
 theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 4 )
 disabled = true
-text = "Options"
+text = "Wave Select"
 __meta__ = {
 "_edit_use_anchors_": false
 }

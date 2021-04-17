@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/TowerMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=2]
@@ -72,6 +72,58 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "TreeHurt"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 0.965936, 1, 0.965936 ),
+"update": 0,
+"values": [ Color( 1, 0.25098, 0.25098, 0 ), Color( 1, 0.25098, 0.25098, 0.713726 ), Color( 1, 0.25098, 0.25098, 0 ) ]
 }
 
 [node name="Game" type="Node2D"]
@@ -162,8 +214,6 @@ margin_bottom = 99.0
 text = "Start Wave"
 
 [node name="MsgBox" type="PanelContainer" parent="HUD"]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -179,6 +229,7 @@ __meta__ = {
 }
 
 [node name="MsgLabel" type="Label" parent="HUD/MsgBox"]
+visible = false
 margin_left = 6.0
 margin_top = 31.0
 margin_right = 411.0
@@ -191,11 +242,12 @@ anims/GameWon = SubResource( 1 )
 
 [node name="Fade Effect" type="ColorRect" parent="HUD"]
 visible = false
+modulate = Color( 1, 1, 1, 0 )
 margin_left = -8.0
 margin_top = -5.0
 margin_right = 1285.0
 margin_bottom = 727.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0.768627, 0.254902, 0.262745, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -203,8 +255,11 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Fade Effect"]
 autoplay = "Fade"
 anims/Fade = SubResource( 2 )
+anims/TreeHurt = SubResource( 5 )
 
 [node name="DialogBox" parent="HUD" instance=ExtResource( 5 )]
+margin_top = -161.0
+margin_bottom = -1.0
 
 [node name="World" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1151.49, 1081.55 )

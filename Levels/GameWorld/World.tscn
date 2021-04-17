@@ -437,6 +437,9 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="Enemies" type="YSort" parent="PathSpawner"]
+position = Vector2( 1124.23, 635.318 )
+
 [node name="EnemyPathLeft" type="Path2D" parent="PathSpawner"]
 position = Vector2( -8.47388, -20.0661 )
 scale = Vector2( 1.37555, 1.28728 )

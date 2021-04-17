@@ -222,7 +222,6 @@ tracks/0/keys = {
 
 [node name="PathSpawner" type="Node2D"]
 script = ExtResource( 1 )
-waves = [ "SpamWave", "Wave02", "Wave02" ]
 
 [node name="EnemyPath" type="Path2D" parent="."]
 position = Vector2( -8.47388, -20.0661 )
@@ -235,3 +234,5 @@ anims/Wave01 = SubResource( 3 )
 anims/Wave02 = SubResource( 4 )
 
 [node name="CheckTimer" type="Timer" parent="."]
+
+[node name="YSort" type="YSort" parent="."]

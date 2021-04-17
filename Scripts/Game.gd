@@ -34,6 +34,8 @@ onready var ui_animations: AnimationPlayer = get_node(ui_animations_path)
 onready var audio_player: AudioStreamPlayer = $TreeHurtAudio
 onready var tween: Tween = $Tween
 onready var music_lpf: AudioEffectLowPassFilter = AudioServer.get_bus_effect(1, 0)
+var camera: Camera2D
+
 
 const HP_STRING = "HP: %d"
 const MONEY_STRING = "Essence: %d"
@@ -41,7 +43,6 @@ const TOWERS_STRING = "Towers: %d/%d"
 
 func _ready():
 	assert(waves.size() > 0)
-
 	set_money(money)
 	set_health(health)
 	set_built_towers(built_towers)
@@ -50,6 +51,7 @@ func _ready():
 	spawner = world.spawner
 	spawner.connect("wave_finished", self, "wave_finished")
 	damage_area.connect("area_entered", self, "_on_DamageArea_area_entered")
+	camera = get_tree().get_nodes_in_group("camera")[0]
 
 func set_health(new_heatlh):
 	health = new_heatlh
@@ -135,6 +137,8 @@ func _on_DamageArea_area_entered(area):
 	audio_player.play()
 	area.get_parent().queue_free()
 	self.health -= 1
+	camera.shake(9)
+	$"HUD/Fade Effect/AnimationPlayer".play("TreeHurt")
 	if health == 0:
 		print("Game Over")
 		# TODO: Redo the game over with proper checkpoints/reloading of wave state

@@ -13,7 +13,7 @@ onready var game: Game = get_tree().root.get_node("Game")
 onready var check_timer: Timer = $CheckTimer
 
 # TODO: Figure out Ysorting: https://github.com/godotengine/godot/issues/28990
-# onready var enemies_node: Node2D = $Enemies
+onready var enemies_node: Node2D = $Enemies
 
 var wave_in_progress = false
 var spawning_in_progress = false
@@ -43,9 +43,17 @@ func spawn_enemy(enemy_scene: PackedScene, path: Path2D):
 	var new_enemy: Enemy = enemy_scene.instance()
 	new_enemy.connect("killed", self, "loot")
 	new_enemy.add_to_group("enemies")
-	# enemies_node.add_child(new_enemy)
+	new_enemy.position = Vector2(-10000, -10000)
+	enemies_node.add_child(new_enemy)
 	
-	path.add_child(new_enemy)
+	var remote_transform: RemoteTransform2D = RemoteTransform2D.new()
+	var path_follower: PathFollow2D = PathFollow2D.new()
+	path_follower.rotate = false
+	remote_transform.remote_path = new_enemy.get_path()
+	path_follower.add_child(remote_transform)
+	new_enemy.path_follower = path_follower
+	
+	path.add_child(path_follower)
 
 func spawn_top(enemy_num: int):
 	spawn_enemy(enemy_scenes[enemy_num], enemy_path_top)
