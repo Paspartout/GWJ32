@@ -2,7 +2,11 @@ extends Node2D
 
 signal wave_finished()
 
-export(Array, PackedScene)var enemy_scenes = [ preload("res://Scenes/Enemies/Enemy.tscn") ]
+export(Array, PackedScene)var enemy_scenes = [
+	preload("res://Scenes/Enemies/EnemyOrc.tscn"),
+	preload("res://Scenes/Enemies/EnemyGoblin.tscn"),
+	preload("res://Scenes/Enemies/EnemyOgre.tscn")
+]
 
 onready var enemy_path_left: Path2D = $EnemyPathLeft
 onready var enemy_path_top: Path2D = $EnemyPathTop
