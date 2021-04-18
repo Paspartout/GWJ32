@@ -3,9 +3,9 @@
 [ext_resource path="res://UI/theme.tres" type="Theme" id=1]
 [ext_resource path="res://UI/FontBig48.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Images/black.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/Pause.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/GameOver.gd" type="Script" id=4]
 
-[node name="Pause" type="Control"]
+[node name="GameOver" type="Control"]
 pause_mode = 2
 theme = ExtResource( 1 )
 script = ExtResource( 4 )

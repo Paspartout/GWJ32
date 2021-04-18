@@ -83,8 +83,10 @@ func start_wave():
 	start_wave_button.release_focus()
 	state = State.Wave
 	spawner.start_wave(waves[current_wave])
+	
+	# Disable Lowpass Filter after playing battle sound
 	sfx_player.play()
-
+	yield(sfx_player, "finished")
 	AudioServer.set_bus_effect_enabled(1, 0, true)
 	tween.interpolate_property(music_lpf, "cutoff_hz", null, 22050, 1,
 		Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
@@ -156,9 +158,10 @@ func next_wave():
 func wave_finished():
 	post_wave(waves[current_wave])
 	AudioServer.set_bus_effect_enabled(1, 0, true)
-	tween.interpolate_property(music_lpf, "cutoff_hz", null, 1000, 1,
+	tween.interpolate_property(music_lpf, "cutoff_hz", null, 1000, 3,
 		Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	tween.start()
+	yield(tween, "tween_all_completed")
 
 func game_finished():
 	start_wave_button.disabled = false
