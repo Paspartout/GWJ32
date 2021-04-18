@@ -37,6 +37,7 @@ onready var audio_player: AudioStreamPlayer = $TreeHurtAudio
 onready var tween: Tween = $Tween
 onready var music_lpf: AudioEffectLowPassFilter = AudioServer.get_bus_effect(1, 0)
 onready var camera: Camera2D = get_tree().get_nodes_in_group("camera")[0]
+onready var game_over_screen = $HUD/GameOver
 
 const HP_STRING = "HP: %d"
 const MONEY_STRING = "Essence: %d"
@@ -51,7 +52,7 @@ func _ready():
 	spawner = world.spawner
 	spawner.connect("wave_finished", self, "wave_finished")
 	damage_area.connect("area_entered", self, "_on_DamageArea_area_entered")
-	start_wave_button.text = "Start Wave %d" % current_wave
+	start_wave_button.text = "Start Game"
 	if not skip_tutoial:
 		dialog_box.start_tutorial()
 
@@ -84,10 +85,9 @@ func start_wave():
 	start_wave_button.release_focus()
 	state = State.Wave
 	spawner.start_wave(waves[current_wave])
-	
+
 	# Disable Lowpass Filter after playing battle sound
 	sfx_player.play()
-	yield(sfx_player, "finished")
 	AudioServer.set_bus_effect_enabled(1, 0, true)
 	tween.interpolate_property(music_lpf, "cutoff_hz", null, 22050, 1,
 		Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
@@ -141,7 +141,7 @@ func post_wave(wave: String):
 			yield(dialog, "completed")
 		"wave7_boss":
 			var dialog = dialog_box.show_multiline([
-				"Good Job! You saved the forest!"
+				"Good Job! You saved the forest! Thanks for playing!"
 			])
 			yield(dialog, "completed")
 		_:
@@ -150,24 +150,38 @@ func post_wave(wave: String):
 
 func next_wave():
 	current_wave += 1
-	start_wave_button.disabled = false
-	start_wave_button.text = "Start Wave %d" % current_wave
-	state = State.Building
+	switch_to_build_mode()
 	if current_wave >= waves.size():
 		game_finished()
 
 func wave_finished():
-	post_wave(waves[current_wave])
+	if health > 0:
+		post_wave(waves[current_wave])
+
 	AudioServer.set_bus_effect_enabled(1, 0, true)
 	tween.interpolate_property(music_lpf, "cutoff_hz", null, 1000, 3,
 		Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	tween.start()
 	yield(tween, "tween_all_completed")
 
-func game_finished():
+func stop_wave():
+	spawner.stop_wave()
+
+func switch_to_build_mode():
 	start_wave_button.disabled = false
-	start_wave_button.text = "Restart Game"
+	start_wave_button.text = "Start Wave %d" % current_wave
 	state = State.Building
+
+func restart_wave():
+	switch_to_build_mode()
+	$"HUD/Fade Effect/AnimationPlayer".play("Respawn")
+	self.money = money_before_start
+	self.health = 5
+	# TODO: Reset turret state
+
+func game_finished():
+	switch_to_build_mode()
+	start_wave_button.text = "Restart Game"
 	start_wave_button.disconnect("pressed", self, "start_wave")
 	start_wave_button.connect("pressed", self, "restart_game")
 
@@ -181,4 +195,5 @@ func _on_DamageArea_area_entered(area):
 	camera.shake(9)
 	$"HUD/Fade Effect/AnimationPlayer".play("TreeHurt")
 	if health == 0:
-		pass
+		$"HUD/Fade Effect/AnimationPlayer".play("Death")
+		game_over_screen.show()

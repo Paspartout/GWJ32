@@ -45,10 +45,6 @@ func destroy_tower():
 func on_enable_tower_building(enabled):
 	tower_button.disabled = !enabled
 
-func upgrade_tower():
-	# TODO
-	print("Upgrading tower in the future...")
-
 func _on_TowerClickArea_input_event(viewport, event, shape_idx):
 	if (event is InputEventMouseButton && event.pressed):
 		if built_tower_stats == null:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/TowerMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=2]
@@ -9,6 +9,46 @@
 [ext_resource path="res://UI/theme.tres" type="Theme" id=7]
 [ext_resource path="res://Scenes/Pause.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/GameOver.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Animation" id=3]
+resource_name = "Death"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 0.965936, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.25098, 0.25098, 0 ), Color( 1, 0.26, 0.26, 1 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 tracks/0/type = "value"
@@ -46,6 +86,46 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Respawn"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 0.965936 ),
+"update": 0,
+"values": [ Color( 1, 0.26, 0.26, 1 ), Color( 1, 0.25098, 0.25098, 0 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -91,6 +171,8 @@ tracks/2/keys = {
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
 waves = [ "wave0_tutorial_meele", "wave1_tutorial_towers", "wave2", "wave3_introduce_ogres", "wave4", "wave5_introduce_goblins", "wave6", "wave7_boss" ]
+current_wave = 4
+skip_tutoial = true
 world_path = NodePath("World")
 start_wave_button_path = NodePath("HUD/BottomPanel/StartWave")
 
@@ -177,20 +259,20 @@ margin_bottom = 99.0
 text = "Start Wave"
 
 [node name="Fade Effect" type="ColorRect" parent="HUD"]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
 margin_left = -8.0
 margin_top = -5.0
 margin_right = 1285.0
 margin_bottom = 727.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 1, 0.25098, 0.25098, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Fade Effect"]
 autoplay = "Fade"
+anims/Death = SubResource( 3 )
 anims/Fade = SubResource( 1 )
+anims/Respawn = SubResource( 4 )
 anims/TreeHurt = SubResource( 2 )
 
 [node name="DialogBox" parent="HUD" instance=ExtResource( 5 )]

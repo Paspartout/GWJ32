@@ -142,8 +142,6 @@ margin_bottom = 48.0
 text = "Master"
 
 [node name="MasterSlider" type="HSlider" parent="SoundSettings"]
-anchor_top = 0.0115132
-anchor_bottom = 0.0115132
 margin_left = 127.0
 margin_right = 503.0
 margin_bottom = 32.0
@@ -162,8 +160,6 @@ margin_bottom = 100.0
 text = "Music"
 
 [node name="MusicSlider" type="HSlider" parent="SoundSettings"]
-anchor_top = 0.0131579
-anchor_bottom = 0.0131579
 margin_left = 127.0
 margin_top = 52.0
 margin_right = 503.0
@@ -184,8 +180,6 @@ margin_bottom = 152.0
 text = "Sounds"
 
 [node name="SoundSlider" type="HSlider" parent="SoundSettings"]
-anchor_top = 0.0115132
-anchor_bottom = 0.0115132
 margin_left = 127.0
 margin_top = 104.0
 margin_right = 503.0

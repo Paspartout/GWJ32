@@ -58,7 +58,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Fullscreen" type="Button" parent="CenterContainer/Panel/VBoxContainer"]
+[node name="Menu" type="Button" parent="CenterContainer/Panel/VBoxContainer"]
 margin_top = 60.0
 margin_right = 228.0
 margin_bottom = 116.0
@@ -75,5 +75,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
-[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/Fullscreen" to="." method="_on_Fullscreen_pressed"]
 [connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/Menu" to="." method="_on_Menu_pressed"]

@@ -12,7 +12,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 377.192, 220.187, 0, 0, 0, 0, 695.895, 221.775, 0, 0, 0, 0, 694.968, 321.939, 0, 0, 0, 0, 510.705, 323.297, 0, 0, 0, 0, 510.523, 495.171, 0, 0, 0, 0, 820.413, 495.947 )
+"points": PoolVector2Array( 0, 0, 0, 0, 406.168, 221.695, 0, 0, 0, 0, 695.895, 221.775, 0, 0, 0, 0, 694.968, 321.939, 0, 0, 0, 0, 510.705, 323.297, 0, 0, 0, 0, 510.523, 495.171, 0, 0, 0, 0, 820.413, 495.947 )
 }
 
 [sub_resource type="Curve2D" id=2]
@@ -22,7 +22,7 @@ _data = {
 
 [sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1259.86, 222.904, 0, 0, 0, 0, 977.813, 221.073, 0, 0, 0, 0, 975.756, 321.046, 0, 0, 0, 0, 1158.42, 322.511, 0, 0, 0, 0, 1161.16, 493.527, 0, 0, 0, 0, 852.726, 497.922 )
+"points": PoolVector2Array( 0, 0, 0, 0, 1264.01, 220.919, 0, 0, 0, 0, 977.813, 221.073, 0, 0, 0, 0, 975.756, 321.046, 0, 0, 0, 0, 1158.42, 322.511, 0, 0, 0, 0, 1161.16, 493.527, 0, 0, 0, 0, 852.726, 497.922 )
 }
 
 [sub_resource type="Animation" id=4]
@@ -1147,7 +1147,7 @@ position = Vector2( -305, -166 )
 scale = Vector2( 2, 2 )
 
 [node name="SpawnPoint" type="Position2D" parent="."]
-position = Vector2( 16, 237 )
+position = Vector2( -116, -17 )
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )

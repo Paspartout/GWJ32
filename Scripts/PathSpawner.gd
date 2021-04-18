@@ -45,11 +45,14 @@ func check_remaining_enemies():
 		check_timer.disconnect("timeout", self, "check_remaining_enemies")
 		check_timer.stop()
 
-func skip_wave():
+func stop_wave():
 	wave_player.stop()
-	emit_signal("wave_finished")
 	for enemy in get_tree().get_nodes_in_group("enemies"):
 		enemy.kill()
+
+func skip_wave():
+	stop_wave()
+	emit_signal("wave_finished")
 
 func spawn_enemy(enemy_scene: PackedScene, path: Path2D):
 	var new_enemy: Enemy = enemy_scene.instance()
