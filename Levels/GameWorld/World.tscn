@@ -817,8 +817,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 4.5, 5.5, 6.5, 10, 10.5, 11, 11.5, 12, 12.5, 13 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 4.5, 5.5, 6.5, 7.5, 10, 10.5, 11, 11.5, 12, 12.5, 13 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ 1 ],
 "method": "spawn_left"
@@ -827,6 +827,9 @@ tracks/0/keys = {
 "method": "spawn_left"
 }, {
 "args": [ 1 ],
+"method": "spawn_left"
+}, {
+"args": [ 4 ],
 "method": "spawn_left"
 }, {
 "args": [ 0 ],
@@ -858,8 +861,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1, 2, 4.5, 5, 5.5, 6, 6.5, 10, 10.5, 11, 11.5, 12 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 1, 2, 4.5, 5, 5.5, 6, 6.5, 7.5, 10, 10.5, 11, 11.5, 12 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ 1 ],
 "method": "spawn_top"
@@ -883,6 +886,9 @@ tracks/1/keys = {
 "method": "spawn_top"
 }, {
 "args": [ 0 ],
+"method": "spawn_top"
+}, {
+"args": [ 3 ],
 "method": "spawn_top"
 }, {
 "args": [ 1 ],
@@ -908,8 +914,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 4.5, 5.5, 6.5, 10, 10.5, 11, 11.5, 12, 12.5, 13 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 4.5, 5.5, 6.5, 7.5, 10, 10.5, 11, 11.5, 12, 12.5, 13 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ 1 ],
 "method": "spawn_right"
@@ -918,6 +924,9 @@ tracks/2/keys = {
 "method": "spawn_right"
 }, {
 "args": [ 1 ],
+"method": "spawn_right"
+}, {
+"args": [ 4 ],
 "method": "spawn_right"
 }, {
 "args": [ 0 ],

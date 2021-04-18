@@ -8,12 +8,12 @@ radius = 48.0
 
 [node name="EnemyBoss" instance=ExtResource( 1 )]
 hp = 20
-default_speed = 10
+default_speed = 13
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2( 4, 4 )
 frames = ExtResource( 2 )
-frame = 1
+frame = 5
 
 [node name="EnemyCollision" parent="." index="1"]
 position = Vector2( 0, -18 )
