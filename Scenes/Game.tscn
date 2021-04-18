@@ -169,9 +169,7 @@ tracks/2/keys = {
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
-money = 2000
 waves = [ "wave0_tutorial_meele", "wave1_tutorial_towers", "wave2", "wave3_introduce_ogres", "wave4", "wave5_introduce_goblins", "wave6", "wave7_boss" ]
-current_wave = 7
 world_path = NodePath("World")
 start_wave_button_path = NodePath("HUD/BottomPanel/StartWave")
 
