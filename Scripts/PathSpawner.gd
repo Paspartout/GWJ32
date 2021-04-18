@@ -6,7 +6,8 @@ export(Array, PackedScene)var enemy_scenes = [
 	preload("res://Scenes/Enemies/EnemyOrc.tscn"),   # 0
 	preload("res://Scenes/Enemies/EnemyGoblin.tscn"),# 1
 	preload("res://Scenes/Enemies/EnemyOgre.tscn"),   # 2
-	preload("res://Scenes/Enemies/EnemyBoss.tscn")   # 2
+	preload("res://Scenes/Enemies/EnemyBoss.tscn"),   # 2
+	preload("res://Scenes/Enemies/EnemyBossFast.tscn")
 ]
 
 onready var enemy_path_left: Path2D = $EnemyPathLeft

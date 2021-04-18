@@ -5,8 +5,8 @@
 
 [node name="EnemyGoblin" instance=ExtResource( 1 )]
 hp = 3
-loot_money = 20
+loot_money = 15
 
 [node name="Sprite" parent="." index="0"]
 frames = ExtResource( 2 )
-frame = 4
+frame = 2

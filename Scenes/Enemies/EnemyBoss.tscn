@@ -4,17 +4,20 @@
 [ext_resource path="res://Scenes/Enemies/EnemyOgreAnim.tres" type="SpriteFrames" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 45.4893
+radius = 48.0
 
 [node name="EnemyBoss" instance=ExtResource( 1 )]
+hp = 20
+default_speed = 10
 
 [node name="Sprite" parent="." index="0"]
-scale = Vector2( 3, 3 )
+scale = Vector2( 4, 4 )
 frames = ExtResource( 2 )
-frame = 3
+frame = 5
 
 [node name="EnemyCollision" parent="." index="1"]
 position = Vector2( 0, -18 )
 
 [node name="CollisionShape2D" parent="EnemyCollision" index="0"]
+position = Vector2( -8, 2 )
 shape = SubResource( 1 )

@@ -6,8 +6,8 @@
 [node name="EnemyOgre" instance=ExtResource( 1 )]
 hp = 13
 default_speed = 25
-loot_money = 50
+loot_money = 18
 
 [node name="Sprite" parent="." index="0"]
 frames = ExtResource( 2 )
-frame = 3
+frame = 5
