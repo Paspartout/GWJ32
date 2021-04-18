@@ -31,28 +31,29 @@ anchor_left = -0.009375
 anchor_top = 0.05
 anchor_right = -0.009375
 anchor_bottom = 0.05
-margin_left = 196.93
-margin_top = 269.0
-margin_right = 446.93
-margin_bottom = 513.0
+margin_left = 176.0
+margin_top = 304.0
+margin_right = 440.0
+margin_bottom = 548.0
 rect_min_size = Vector2( 250, 200 )
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 2.0
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuPanel"]
 margin_left = 6.0
 margin_top = 4.0
-margin_right = 244.0
+margin_right = 258.0
 margin_bottom = 240.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Play" type="Button" parent="MenuPanel/VBoxContainer"]
-margin_right = 238.0
+margin_right = 252.0
 margin_bottom = 56.0
 theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 4 )
@@ -63,7 +64,7 @@ __meta__ = {
 
 [node name="Options" type="Button" parent="MenuPanel/VBoxContainer"]
 margin_top = 60.0
-margin_right = 238.0
+margin_right = 252.0
 margin_bottom = 116.0
 theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 4 )
@@ -74,7 +75,7 @@ __meta__ = {
 
 [node name="Wave Select" type="Button" parent="MenuPanel/VBoxContainer"]
 margin_top = 120.0
-margin_right = 238.0
+margin_right = 252.0
 margin_bottom = 176.0
 theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 4 )
@@ -86,7 +87,7 @@ __meta__ = {
 
 [node name="Exit" type="Button" parent="MenuPanel/VBoxContainer"]
 margin_top = 180.0
-margin_right = 238.0
+margin_right = 252.0
 margin_bottom = 236.0
 custom_fonts/font = ExtResource( 4 )
 text = "  Exit  "
