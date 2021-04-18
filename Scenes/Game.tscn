@@ -7,48 +7,9 @@
 [ext_resource path="res://Scenes/DialogBox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sounds/start_wave.ogg" type="AudioStream" id=6]
 [ext_resource path="res://UI/theme.tres" type="Theme" id=7]
+[ext_resource path="res://Scenes/Pause.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]
-resource_name = "GameWon"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("MsgBox:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 3.6, 3.8 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ true, true, false ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("MsgBox:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4, 3.5, 3.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("MsgBox/MsgLabel:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.7, 1.1, 1.5, 1.9, 2.3, 2.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ true, false, true, false, true, false, true ]
-}
-
-[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -86,7 +47,7 @@ tracks/2/keys = {
 "values": [ Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "TreeHurt"
 length = 0.8
 tracks/0/type = "value"
@@ -131,7 +92,6 @@ script = ExtResource( 2 )
 waves = [ "wave0_tutorial_meele", "wave1_tutorial_towers", "wave2", "wave3_introduce_ogres", "wave4", "wave5_introduce_goblins", "wave6", "wave7_boss" ]
 world_path = NodePath("World")
 start_wave_button_path = NodePath("HUD/BottomPanel/StartWave")
-ui_animations_path = NodePath("HUD/UiAnimations")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -213,34 +173,6 @@ margin_right = 327.0
 margin_bottom = 99.0
 text = "Start Wave"
 
-[node name="MsgBox" type="PanelContainer" parent="HUD"]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -208.5
-margin_top = -55.5
-margin_right = 208.5
-margin_bottom = 55.5
-mouse_filter = 1
-theme = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MsgLabel" type="Label" parent="HUD/MsgBox"]
-margin_left = 6.0
-margin_top = 31.0
-margin_right = 411.0
-margin_bottom = 79.0
-text = "Game won! Congrats!"
-align = 1
-
-[node name="UiAnimations" type="AnimationPlayer" parent="HUD"]
-anims/GameWon = SubResource( 1 )
-
 [node name="Fade Effect" type="ColorRect" parent="HUD"]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
@@ -255,13 +187,15 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Fade Effect"]
 autoplay = "Fade"
-anims/Fade = SubResource( 2 )
-anims/TreeHurt = SubResource( 3 )
+anims/Fade = SubResource( 1 )
+anims/TreeHurt = SubResource( 2 )
 
 [node name="DialogBox" parent="HUD" instance=ExtResource( 5 )]
 visible = false
 margin_top = -161.0
 margin_bottom = -1.0
+
+[node name="Pause" parent="HUD" instance=ExtResource( 8 )]
 
 [node name="World" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1151.49, 1081.55 )

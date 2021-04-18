@@ -12,4 +12,6 @@ onready var damage_area: Area2D = get_node(damage_area_path)
 export(PackedScene) var player_scene
 
 func _ready():
-	objects.add_child(player_scene.instance())
+	var player = player_scene.instance()
+	player.position = spawn_point.position
+	objects.add_child(player)

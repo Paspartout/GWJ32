@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/theme.tres" type="Theme" id=1]
+[ext_resource path="res://UI/FontBig48.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Images/black.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Pause.gd" type="Script" id=4]
+
+[node name="Pause" type="Control"]
+pause_mode = 2
+theme = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.388235 )
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="PanelContainer" parent="CenterContainer"]
+margin_left = 390.0
+margin_top = 246.0
+margin_right = 890.0
+margin_bottom = 473.0
+rect_min_size = Vector2( 500, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel"]
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 494.0
+margin_bottom = 223.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/VBoxContainer"]
+margin_right = 488.0
+margin_bottom = 99.0
+text = "Game Over!
+Please try again!"
+align = 1
+
+[node name="Restart" type="Button" parent="CenterContainer/Panel/VBoxContainer"]
+margin_top = 103.0
+margin_right = 488.0
+margin_bottom = 159.0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Restart Wave"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="Button" parent="CenterContainer/Panel/VBoxContainer"]
+margin_top = 163.0
+margin_right = 488.0
+margin_bottom = 219.0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/Restart" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/Menu" to="." method="_on_Menu_pressed"]

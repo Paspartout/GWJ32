@@ -1048,9 +1048,6 @@ position = Vector2( 114.205, -303.653 )
 [node name="TowerSlot10" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( 272.098, -303.653 )
 
-[node name="TowerSlot11" parent="Objects/Slots" instance=ExtResource( 4 )]
-position = Vector2( 399.684, -303.653 )
-
 [node name="TowerSlot12" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( 399.684, -432.201 )
 

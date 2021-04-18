@@ -3,12 +3,10 @@ extends Control
 
 # NOTE: Why titelize this text? Makes it hard to read imho?
 var tutoial_dialog = [
-	'This forest is powered by the divine tree.',
-	'Protect it with your axe and by placing towers',
-	'You can place only 7 towers at once!',
-	'Use them wisely and remember...',
-	'The tree must be protected at all costs',
-	'Use WASD to move and spacebar to attack',
+	'This forest is powered by the divine tree. Protect it with your axe and by placing towers.',
+	'You can place only 7 towers at once! Use them wisely and remember...',
+	'The tree must be protected at all costs!',
+	'Use WASD or Arrow Keys to move and spacebar to attack.',
 	'Start the wave when ready. Good luck!'
 	]
 
