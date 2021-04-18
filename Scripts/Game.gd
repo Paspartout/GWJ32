@@ -9,6 +9,8 @@ signal money_changed(new_value)
 export(int) var health: int = 5 setget set_health
 export(int) var money: int = 0 setget set_money
 
+var money_before_start = 0
+
 var built_towers = 0 setget set_built_towers
 const MAX_TOWERS = 7
 var state = State.Building
@@ -32,7 +34,7 @@ onready var world = get_node(world_path)
 onready var spawner = world.spawner
 onready var damage_area: Area2D = world.damage_area
 onready var start_wave_button: Button = get_node(start_wave_button_path)
-onready var ui_animations: AnimationPlayer = get_node(ui_animations_path)
+#onready var ui_animations: AnimationPlayer = get_node(ui_animations_path)
 onready var audio_player: AudioStreamPlayer = $TreeHurtAudio
 onready var tween: Tween = $Tween
 onready var music_lpf: AudioEffectLowPassFilter = AudioServer.get_bus_effect(1, 0)
@@ -52,6 +54,7 @@ func _ready():
 	spawner = world.spawner
 	spawner.connect("wave_finished", self, "wave_finished")
 	damage_area.connect("area_entered", self, "_on_DamageArea_area_entered")
+	start_wave_button.text = "Start Wave %d" % current_wave
 	if not skip_tutoial:
 		dialog_box.start_tutorial()
 
@@ -77,6 +80,7 @@ func set_built_towers(new_built_towers):
 	emit_signal("enable_tower_building", built_towers < MAX_TOWERS)
 
 func start_wave():
+	money_before_start = money
 	assert(state == State.Building)
 	start_wave_button.text = "Wave %d in progress" % current_wave
 	start_wave_button.disabled = true
@@ -91,7 +95,6 @@ func start_wave():
 	tween.start()
 	yield(tween, "tween_all_completed")
 	AudioServer.set_bus_effect_enabled(1, 0, false)
-
 
 func post_wave(wave: String):
 	match wave:
@@ -154,9 +157,6 @@ func next_wave():
 	if current_wave >= waves.size():
 		game_finished()
 
-func skip_wave():
-	pass
-
 func wave_finished():
 	post_wave(waves[current_wave])
 	AudioServer.set_bus_effect_enabled(1, 0, true)
@@ -168,7 +168,6 @@ func game_finished():
 	start_wave_button.disabled = false
 	start_wave_button.text = "Restart Game"
 	state = State.Building
-	ui_animations.play("GameWon")
 	start_wave_button.disconnect("pressed", self, "start_wave")
 	start_wave_button.connect("pressed", self, "restart_game")
 
@@ -182,5 +181,4 @@ func _on_DamageArea_area_entered(area):
 	camera.shake(9)
 	$"HUD/Fade Effect/AnimationPlayer".play("TreeHurt")
 	if health == 0:
-		print("Game Over")
-		# TODO: Redo the game over with proper checkpoints/reloading of wave state
+		pass

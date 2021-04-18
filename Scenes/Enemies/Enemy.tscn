@@ -161,7 +161,7 @@ hp = 2
 scale = Vector2( 2, 2 )
 frames = SubResource( 25 )
 animation = "down"
-frame = 1
+frame = 4
 playing = true
 offset = Vector2( 0, -6 )
 

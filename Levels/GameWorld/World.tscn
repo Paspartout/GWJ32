@@ -25,7 +25,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 1259.86, 222.904, 0, 0, 0, 0, 977.813, 221.073, 0, 0, 0, 0, 975.756, 321.046, 0, 0, 0, 0, 1158.42, 322.511, 0, 0, 0, 0, 1161.16, 493.527, 0, 0, 0, 0, 852.726, 497.922 )
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "wave0_tutorial_meele"
 length = 20.0
 tracks/0/type = "method"
@@ -100,7 +100,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "wave1_tutorial_towers"
 length = 20.0
 tracks/0/type = "method"
@@ -175,7 +175,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 resource_name = "wave2"
 length = 25.0
 step = 0.5
@@ -330,7 +330,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=7]
 resource_name = "wave3_introduce_ogres"
 length = 6.0
 step = 0.5
@@ -413,7 +413,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=8]
 resource_name = "wave4"
 length = 20.0
 step = 0.5
@@ -532,7 +532,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=9]
 resource_name = "wave5_introduce_goblins"
 length = 15.0
 step = 0.5
@@ -669,7 +669,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=10]
 resource_name = "wave6"
 length = 15.0
 step = 0.5
@@ -806,7 +806,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=11]
 resource_name = "wave7_boss"
 length = 15.0
 step = 0.5
@@ -943,10 +943,10 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 42.9933, 39.8213 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 10, 624 )
 
 [node name="World" type="Node2D"]
@@ -983,14 +983,14 @@ scale = Vector2( 1.37555, 1.28728 )
 curve = SubResource( 3 )
 
 [node name="WavePlayer" type="AnimationPlayer" parent="PathSpawner"]
-anims/wave0_tutorial_meele = SubResource( 5 )
-anims/wave1_tutorial_towers = SubResource( 6 )
-anims/wave2 = SubResource( 7 )
-anims/wave3_introduce_ogres = SubResource( 10 )
-anims/wave4 = SubResource( 12 )
-anims/wave5_introduce_goblins = SubResource( 11 )
-anims/wave6 = SubResource( 13 )
-anims/wave7_boss = SubResource( 14 )
+anims/wave0_tutorial_meele = SubResource( 4 )
+anims/wave1_tutorial_towers = SubResource( 5 )
+anims/wave2 = SubResource( 6 )
+anims/wave3_introduce_ogres = SubResource( 7 )
+anims/wave4 = SubResource( 8 )
+anims/wave5_introduce_goblins = SubResource( 9 )
+anims/wave6 = SubResource( 10 )
+anims/wave7_boss = SubResource( 11 )
 
 [node name="CheckTimer" type="Timer" parent="PathSpawner"]
 
@@ -999,7 +999,7 @@ anims/wave7_boss = SubResource( 14 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 position = Vector2( 16.4458, -14.4191 )
 scale = Vector2( 2, 2 )
-shape = SubResource( 8 )
+shape = SubResource( 12 )
 
 [node name="Objects" type="YSort" parent="."]
 
@@ -1032,9 +1032,6 @@ position = Vector2( 114.205, -303.653 )
 
 [node name="TowerSlot10" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( 272.098, -303.653 )
-
-[node name="TowerSlot11" parent="Objects/Slots" instance=ExtResource( 4 )]
-position = Vector2( 399.684, -303.653 )
 
 [node name="TowerSlot12" parent="Objects/Slots" instance=ExtResource( 4 )]
 position = Vector2( 399.684, -432.201 )
@@ -1157,18 +1154,18 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders"]
-shape = SubResource( 9 )
+shape = SubResource( 13 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders"]
 position = Vector2( 1200, 8 )
-shape = SubResource( 9 )
+shape = SubResource( 13 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Borders"]
 position = Vector2( 600, -552 )
 rotation = 1.5708
-shape = SubResource( 9 )
+shape = SubResource( 13 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Borders"]
 position = Vector2( 584, 568 )
 rotation = 1.5708
-shape = SubResource( 9 )
+shape = SubResource( 13 )
