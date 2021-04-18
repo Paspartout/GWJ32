@@ -21,12 +21,10 @@ export var current_wave: int = 0
 export var skip_tutoial: bool = false
 export var world_path: NodePath
 export var start_wave_button_path: NodePath
-export var ui_animations_path: NodePath
 
 onready var hp_label: Label = $HUD/WaveStats/HBoxContainer/HP
 onready var money_label: Label = $HUD/WaveStats/HBoxContainer/Money
 onready var tower_label: Label = $HUD/WaveStats/HBoxContainer/Towers
-onready var msg_box: Control = $HUD/MsgBox
 onready var dialog_box: DialogBox = $HUD/DialogBox
 onready var sfx_player: AudioStreamPlayer = $SfxPlayer
 
@@ -34,7 +32,6 @@ onready var world = get_node(world_path)
 onready var spawner = world.spawner
 onready var damage_area: Area2D = world.damage_area
 onready var start_wave_button: Button = get_node(start_wave_button_path)
-#onready var ui_animations: AnimationPlayer = get_node(ui_animations_path)
 onready var audio_player: AudioStreamPlayer = $TreeHurtAudio
 onready var tween: Tween = $Tween
 onready var music_lpf: AudioEffectLowPassFilter = AudioServer.get_bus_effect(1, 0)
@@ -49,7 +46,6 @@ func _ready():
 	set_money(money)
 	set_health(health)
 	set_built_towers(built_towers)
-	msg_box.visible = false
 	start_wave_button.connect("pressed", self, "start_wave")
 	spawner = world.spawner
 	spawner.connect("wave_finished", self, "wave_finished")
