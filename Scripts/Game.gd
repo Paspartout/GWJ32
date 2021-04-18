@@ -136,7 +136,7 @@ func post_wave(wave: String):
 			var dialog = dialog_box.show_multiline([
 				"Those were some nasty goblins! We almost made it though.",
 				"The next wave should be the last one coming but there are three huge ogres coming up.",
-				"Preapre to concentrate firepower by moving towers!",
+				"Preapre to focus firepower to different lanes by moving towers. Good Luck!",
 			])
 			yield(dialog, "completed")
 		"wave7_boss":
@@ -157,11 +157,6 @@ func next_wave():
 func wave_finished():
 	if health > 0:
 		post_wave(waves[current_wave])
-
-	AudioServer.set_bus_effect_enabled(1, 0, true)
-	tween.interpolate_property(music_lpf, "cutoff_hz", null, 1000, 3,
-		Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
-	tween.start()
 	yield(tween, "tween_all_completed")
 
 func stop_wave():
@@ -171,6 +166,12 @@ func switch_to_build_mode():
 	start_wave_button.disabled = false
 	start_wave_button.text = "Start Wave %d" % current_wave
 	state = State.Building
+	if tween.is_active():
+		yield(tween, "tween_all_completed")
+	AudioServer.set_bus_effect_enabled(1, 0, true)
+	tween.interpolate_property(music_lpf, "cutoff_hz", null, 1000, 2,
+		Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+	tween.start()
 
 func restart_wave():
 	switch_to_build_mode()
