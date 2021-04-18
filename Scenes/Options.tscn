@@ -127,10 +127,10 @@ __meta__ = {
 }
 
 [node name="SoundSettings" type="GridContainer" parent="."]
-margin_left = 16.0
-margin_top = 128.0
-margin_right = 610.0
-margin_bottom = 736.0
+margin_left = 21.0
+margin_top = 96.0
+margin_right = 615.0
+margin_bottom = 704.0
 columns = 3
 __meta__ = {
 "_edit_use_anchors_": false
