@@ -4,7 +4,9 @@
 [ext_resource path="res://Scenes/Enemies/EnemyGoblinAnim.tres" type="SpriteFrames" id=2]
 
 [node name="EnemyGoblin" instance=ExtResource( 1 )]
+hp = 3
+loot_money = 20
 
 [node name="Sprite" parent="." index="0"]
 frames = ExtResource( 2 )
-frame = 3
+frame = 4

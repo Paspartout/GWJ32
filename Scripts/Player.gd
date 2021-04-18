@@ -10,6 +10,7 @@ onready var animation_tree: AnimationTree = $AnimationTree
 onready var state_machine = animation_tree.get("parameters/playback")
 onready var camera = $Camera2D
 onready var attack_timer: Timer = $AttackTimer
+onready var woosh_sfx: AudioStreamPlayer = $FxPlayer
 
 enum State {
 	Move,
@@ -53,8 +54,12 @@ func attack_state(delta):
 	pass
 
 func attack():
+	if state == State.Attack:
+		return
 	state = State.Attack
 	state_machine.travel("Attack")
+	woosh_sfx.pitch_scale = rand_range(0.9, 1.3)
+	woosh_sfx.play()
 
 func _physics_process(delta):
 	match state:

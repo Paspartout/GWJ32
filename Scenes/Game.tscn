@@ -128,7 +128,10 @@ tracks/2/keys = {
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
-waves = [ "wave1_tutorial_meele", "wave2_tutorial_towers", "wave3" ]
+money = 800
+waves = [ "wave0_tutorial_meele", "wave1_tutorial_towers", "wave2", "wave3_introduce_ogres", "wave4", "wave5_introduce_goblins", "wave6", "wave7_boss" ]
+current_wave = 4
+skip_tutoial = true
 world_path = NodePath("World")
 start_wave_button_path = NodePath("HUD/BottomPanel/StartWave")
 ui_animations_path = NodePath("HUD/UiAnimations")
@@ -214,6 +217,8 @@ margin_bottom = 99.0
 text = "Start Wave"
 
 [node name="MsgBox" type="PanelContainer" parent="HUD"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -229,7 +234,6 @@ __meta__ = {
 }
 
 [node name="MsgLabel" type="Label" parent="HUD/MsgBox"]
-visible = false
 margin_left = 6.0
 margin_top = 31.0
 margin_right = 411.0
@@ -247,7 +251,7 @@ margin_left = -8.0
 margin_top = -5.0
 margin_right = 1285.0
 margin_bottom = 727.0
-color = Color( 0.768627, 0.254902, 0.262745, 0 )
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -258,6 +262,7 @@ anims/Fade = SubResource( 2 )
 anims/TreeHurt = SubResource( 3 )
 
 [node name="DialogBox" parent="HUD" instance=ExtResource( 5 )]
+visible = false
 margin_top = -161.0
 margin_bottom = -1.0
 

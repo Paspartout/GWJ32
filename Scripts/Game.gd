@@ -12,9 +12,11 @@ export(int) var money: int = 0 setget set_money
 var built_towers = 0 setget set_built_towers
 const MAX_TOWERS = 7
 var state = State.Building
-var current_wave = 0
+
 export(Array, String) var waves: Array
 
+export var current_wave: int = 0
+export var skip_tutoial: bool = false
 export var world_path: NodePath
 export var start_wave_button_path: NodePath
 export var ui_animations_path: NodePath
@@ -34,8 +36,7 @@ onready var ui_animations: AnimationPlayer = get_node(ui_animations_path)
 onready var audio_player: AudioStreamPlayer = $TreeHurtAudio
 onready var tween: Tween = $Tween
 onready var music_lpf: AudioEffectLowPassFilter = AudioServer.get_bus_effect(1, 0)
-var camera: Camera2D
-
+onready var camera: Camera2D = get_tree().get_nodes_in_group("camera")[0]
 
 const HP_STRING = "HP: %d"
 const MONEY_STRING = "Essence: %d"
@@ -51,7 +52,12 @@ func _ready():
 	spawner = world.spawner
 	spawner.connect("wave_finished", self, "wave_finished")
 	damage_area.connect("area_entered", self, "_on_DamageArea_area_entered")
-	camera = get_tree().get_nodes_in_group("camera")[0]
+	if not skip_tutoial:
+		dialog_box.start_tutorial()
+
+func _input(event):
+	if event.is_action_pressed("debug_skip_wave"):
+		spawner.skip_wave()
 
 func set_health(new_heatlh):
 	health = new_heatlh
@@ -72,7 +78,7 @@ func set_built_towers(new_built_towers):
 
 func start_wave():
 	assert(state == State.Building)
-	start_wave_button.text = "Wave in Progress"
+	start_wave_button.text = "Wave %d in progress" % current_wave
 	start_wave_button.disabled = true
 	start_wave_button.release_focus()
 	state = State.Wave
@@ -89,18 +95,51 @@ func start_wave():
 
 func post_wave(wave: String):
 	match wave:
-		"wave1_tutorial_meele":
+		"wave0_tutorial_meele":
 			var dialog = dialog_box.show_multiline([
 				"Good work! You got some essence now!",
 				"You can use that essence to build towers."
 			])
 			# This waits for the dialog to be skipped/read
 			yield(dialog, "completed")
-		"wave2_tutorial_towers":
+		"wave1_tutorial_towers":
 			var dialog = dialog_box.show_multiline([
 				"Nice! Enemies can come from other sides too.",
 				"Watch out and place towers wisely.",
 				"Also remember you can sell towers.",
+			])
+			yield(dialog, "completed")
+		"wave2":
+			var dialog = dialog_box.show_multiline([
+				"Good job! But be careful, there are some tanky ogres coming up next wave.",
+			])
+			yield(dialog, "completed")
+		"wave3_introduce_ogres":
+			pass # No dialog after wave 4
+		"wave4":
+			var dialog = dialog_box.show_multiline([
+				"Great work! These ogres were though enemies. Tough but slow.",
+				"We heard reports that there are goblins are coming our way now.",
+				"They seem to be the opposite. Fast but squishy. Be careful!",
+				"This might be a good opportunity to build a slow tower if you haven't already tried them.",
+			])
+			yield(dialog, "completed")
+		"wave5_introduce_goblins":
+			var dialog = dialog_box.show_multiline([
+				"Oh no! There are some more goblins coming our way next wave.",
+				"Be prepared with some slow towers on every lane!"
+			])
+			yield(dialog, "completed")
+		"wave6":
+			var dialog = dialog_box.show_multiline([
+				"Those were some nasty goblins! We almost made it though.",
+				"The next wave should be the last one coming but there are three huge ogres coming up.",
+				"Preapre to concentrate firepower by moving towers!",
+			])
+			yield(dialog, "completed")
+		"wave7_boss":
+			var dialog = dialog_box.show_multiline([
+				"Good Job! You saved the forest!"
 			])
 			yield(dialog, "completed")
 		_:
@@ -110,10 +149,13 @@ func post_wave(wave: String):
 func next_wave():
 	current_wave += 1
 	start_wave_button.disabled = false
-	start_wave_button.text = "Start Wave"
+	start_wave_button.text = "Start Wave %d" % current_wave
 	state = State.Building
 	if current_wave >= waves.size():
 		game_finished()
+
+func skip_wave():
+	pass
 
 func wave_finished():
 	post_wave(waves[current_wave])

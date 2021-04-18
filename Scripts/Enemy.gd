@@ -44,12 +44,15 @@ func hurt(damage: int):
 	animation.play("Hurt")
 	hp -= damage
 	if hp <= 0:
-		# TODO: Die sound?
-		visible = false
-		$EnemyCollision.set_deferred("monitorable", false)
-		emit_signal("killed", loot_money)
+		kill(true)
+
+func kill(wait_for_sound=false):
+	visible = false
+	$EnemyCollision.set_deferred("monitorable", false)
+	emit_signal("killed", loot_money)
+	if wait_for_sound:
 		yield(audio_player, "finished")
-		queue_free()
+	queue_free()
 
 func slow(time: float, multiplier: float):
 	speed = default_speed * multiplier

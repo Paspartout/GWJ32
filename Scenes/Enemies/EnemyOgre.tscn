@@ -4,9 +4,10 @@
 [ext_resource path="res://Scenes/Enemies/EnemyOgreAnim.tres" type="SpriteFrames" id=2]
 
 [node name="EnemyOgre" instance=ExtResource( 1 )]
-hp = 10
+hp = 13
 default_speed = 25
 loot_money = 50
 
 [node name="Sprite" parent="." index="0"]
 frames = ExtResource( 2 )
+frame = 3

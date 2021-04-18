@@ -45,8 +45,8 @@ func show_single_line(text: String):
 	hide_dialog()
 
 func _ready():
-	tutorial_dialog()
-	tween.connect("tween_all_completed", self, "animation_completed")	
+	hide_dialog()
+	tween.connect("tween_all_completed", self, "animation_completed")
 
 func animation_completed():
 	indicator.visible = true
@@ -58,7 +58,7 @@ func _input(event):
 func hide_dialog():
 	visible = false
 
-func tutorial_dialog():
+func start_tutorial():
 	show_multiline(tutoial_dialog)
 
 func _on_Tween_tween_completed(object: Object, key: NodePath) -> void:

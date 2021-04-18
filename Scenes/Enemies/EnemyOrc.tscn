@@ -9,4 +9,4 @@ default_speed = 50
 
 [node name="Sprite" parent="." index="0"]
 frames = ExtResource( 2 )
-frame = 3
+frame = 4
