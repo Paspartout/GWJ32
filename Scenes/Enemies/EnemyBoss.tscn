@@ -13,7 +13,7 @@ default_speed = 10
 [node name="Sprite" parent="." index="0"]
 scale = Vector2( 4, 4 )
 frames = ExtResource( 2 )
-frame = 5
+frame = 1
 
 [node name="EnemyCollision" parent="." index="1"]
 position = Vector2( 0, -18 )
