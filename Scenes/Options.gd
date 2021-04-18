@@ -57,3 +57,5 @@ func _on_MusicSlider_value_changed(value):
 func _on_SoundSlider_value_changed(value):
 	AudioServer.set_bus_volume_db(SFX, percent_to_db(value))
 	update_slider()
+
+

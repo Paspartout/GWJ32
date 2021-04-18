@@ -20,3 +20,9 @@ func _on_Menu_pressed():
 	get_tree().change_scene("res://Scenes/MainMenu.tscn")
 	get_tree().paused = false
 	set_visible(false)
+
+
+func _on_Fullscreen_pressed() -> void:
+	get_tree().paused = false
+	set_visible(false)
+	OS.window_fullscreen = !OS.window_fullscreen
