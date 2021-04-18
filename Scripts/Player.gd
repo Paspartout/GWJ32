@@ -9,7 +9,7 @@ onready var animation_player: AnimationPlayer = $AnimationPlayer
 onready var animation_tree: AnimationTree = $AnimationTree
 onready var state_machine = animation_tree.get("parameters/playback")
 onready var camera = $Camera2D
-
+onready var attack_timer: Timer = $AttackTimer
 
 enum State {
 	Move,
@@ -20,6 +20,14 @@ var state = State.Move
 func _ready():
 	animation_tree.active = true
 	set_process(true);
+	attack_timer.connect("timeout", self, "attack")
+
+func _input(event):
+	if event.is_action_pressed("attack"):
+		attack()
+		attack_timer.start()
+	elif event.is_action_released("attack"):
+		attack_timer.stop()
 
 func move_state(delta):
 	var input_vec = Vector2.ZERO
@@ -34,10 +42,6 @@ func move_state(delta):
 		state_machine.travel("Walk")
 	else:
 		state_machine.travel("Idle")
-	
-	if Input.is_action_just_pressed("attack"):
-		state = State.Attack
-		state_machine.travel("Attack")
 
 	velocity = input_vec.normalized() * speed
 	move_and_slide(velocity)
@@ -48,10 +52,9 @@ func attack_finished():
 func attack_state(delta):
 	pass
 
-# Set variable called shake
-var shake = 0;
-# Set magnitude of the shake
-var shake_magnitude = 7;
+func attack():
+	state = State.Attack
+	state_machine.travel("Attack")
 
 func _physics_process(delta):
 	match state:

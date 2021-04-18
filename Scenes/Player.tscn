@@ -513,11 +513,12 @@ script = ExtResource( 2 )
 speed = 500.0
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 30 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 vframes = 12
 hframes = 6
-frame = 52
+frame = 54
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2( 0.0525475, 62.4891 )
@@ -541,7 +542,7 @@ parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Walk/blend_position = Vector2( 0.00513923, -0.00290692 )
 
 [node name="Weapon" type="Area2D" parent="."]
-position = Vector2( 2, -20 )
+position = Vector2( 0, 68 )
 monitoring = false
 monitorable = false
 collision_layer = 0
@@ -578,4 +579,7 @@ limit_right = 2364
 limit_bottom = 2232
 smoothing_enabled = true
 script = ExtResource( 3 )
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.4
 [connection signal="area_entered" from="Weapon" to="." method="_on_Weapon_hit"]
