@@ -5,5 +5,8 @@
 [node name="EnemyBossFast" instance=ExtResource( 1 )]
 default_speed = 40
 
+[node name="Sprite" parent="." index="0"]
+frame = 1
+
 [node name="CollisionShape2D" parent="EnemyCollision" index="0"]
 position = Vector2( 0, 2 )

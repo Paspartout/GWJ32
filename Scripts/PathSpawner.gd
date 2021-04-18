@@ -10,16 +10,17 @@ export(Array, PackedScene)var enemy_scenes = [
 	preload("res://Scenes/Enemies/EnemyBossFast.tscn")
 ]
 
+export var enemy_ysort_path: NodePath
+
 onready var enemy_path_left: Path2D = $EnemyPathLeft
 onready var enemy_path_top: Path2D = $EnemyPathTop
 onready var enemy_path_right: Path2D = $EnemyPathRight
 
+onready var enemies_node: YSort = get_node(enemy_ysort_path)
+
 onready var wave_player: AnimationPlayer = $WavePlayer
 onready var game: Game = get_tree().root.get_node("Game")
 onready var check_timer: Timer = $CheckTimer
-
-# TODO: Figure out Ysorting: https://github.com/godotengine/godot/issues/28990
-onready var enemies_node: Node2D = $Enemies
 
 var wave_in_progress = false
 var spawning_in_progress = false

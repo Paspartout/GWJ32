@@ -169,7 +169,9 @@ tracks/2/keys = {
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
+money = 2000
 waves = [ "wave0_tutorial_meele", "wave1_tutorial_towers", "wave2", "wave3_introduce_ogres", "wave4", "wave5_introduce_goblins", "wave6", "wave7_boss" ]
+current_wave = 7
 world_path = NodePath("World")
 start_wave_button_path = NodePath("HUD/BottomPanel/StartWave")
 
@@ -241,8 +243,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -166.5
-margin_top = -103.0
+margin_top = -102.0
 margin_right = 166.5
+margin_bottom = 1.0
 theme = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -260,7 +263,7 @@ margin_left = -8.0
 margin_top = -5.0
 margin_right = 1285.0
 margin_bottom = 727.0
-color = Color( 1, 0.25098, 0.25098, 0 )
+color = Color( 1, 0.26, 0.26, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

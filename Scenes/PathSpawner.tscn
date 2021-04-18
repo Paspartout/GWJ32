@@ -236,3 +236,4 @@ anims/Wave02 = SubResource( 4 )
 [node name="CheckTimer" type="Timer" parent="."]
 
 [node name="YSort" type="YSort" parent="."]
+z_index = 1
