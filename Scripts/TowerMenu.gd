@@ -17,6 +17,10 @@ signal tower_selected(tower)
 var tower_button_stats: Dictionary
 var selected_slot
 
+func _input(event):
+	if visible and event.is_action("ui_cancel"):
+		close()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	visible = false
@@ -87,12 +91,12 @@ func open_build_menu(slot):
 	visible = true
 
 func close():
+	if self.is_connected("tower_selected", selected_slot, "place_tower"):
+		self.disconnect("tower_selected", selected_slot, "place_tower")
 	visible = false
 	selected_slot = null
 
 func _on_CancelButton_pressed():
-	if self.is_connected("tower_selected", selected_slot, "place_tower"):
-		self.disconnect("tower_selected", selected_slot, "place_tower")
 	close()
 
 func _on_Upgrade_pressed():

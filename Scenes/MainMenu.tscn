@@ -1,14 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://UI/EquipmentPro.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Music/menu_music2.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Scenes/MainMenu.gd" type="Script" id=2]
 [ext_resource path="res://UI/theme.tres" type="Theme" id=3]
 [ext_resource path="res://UI/FontBig48.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Scenes/Options.tscn" type="PackedScene" id=5]
-
-[sub_resource type="DynamicFont" id=1]
-size = 144
-font_data = ExtResource( 1 )
+[ext_resource path="res://Images/main_menu.jpg" type="Texture" id=6]
 
 [node name="MainMenu" type="Control"]
 theme = ExtResource( 3 )
@@ -17,57 +14,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 margin_right = 1280.0
 margin_bottom = 720.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0, 0, 0, 1 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MainMenu" type="VBoxContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 1280.0
-margin_bottom = 720.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Title" type="Label" parent="MainMenu"]
-margin_right = 1280.0
-margin_bottom = 144.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 1 )
-text = "The Tower Forest"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HSeparator" type="HSeparator" parent="MainMenu"]
-margin_top = 148.0
-margin_right = 1280.0
-margin_bottom = 308.0
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MenuPanel" type="PanelContainer" parent="MainMenu"]
-margin_left = 515.0
-margin_top = 312.0
-margin_right = 765.0
-margin_bottom = 556.0
+[node name="MenuPanel" type="PanelContainer" parent="."]
+anchor_left = -0.009375
+anchor_top = 0.05
+anchor_right = -0.009375
+anchor_bottom = 0.05
+margin_left = 196.93
+margin_top = 269.0
+margin_right = 446.93
+margin_bottom = 513.0
 rect_min_size = Vector2( 250, 200 )
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 2.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MenuPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuPanel"]
 margin_left = 6.0
 margin_top = 4.0
 margin_right = 244.0
@@ -76,7 +51,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Play" type="Button" parent="MainMenu/MenuPanel/VBoxContainer"]
+[node name="Play" type="Button" parent="MenuPanel/VBoxContainer"]
 margin_right = 238.0
 margin_bottom = 56.0
 theme = ExtResource( 3 )
@@ -86,7 +61,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Options" type="Button" parent="MainMenu/MenuPanel/VBoxContainer"]
+[node name="Options" type="Button" parent="MenuPanel/VBoxContainer"]
 margin_top = 60.0
 margin_right = 238.0
 margin_bottom = 116.0
@@ -97,7 +72,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Wave Select" type="Button" parent="MainMenu/MenuPanel/VBoxContainer"]
+[node name="Wave Select" type="Button" parent="MenuPanel/VBoxContainer"]
 margin_top = 120.0
 margin_right = 238.0
 margin_bottom = 176.0
@@ -109,7 +84,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Exit" type="Button" parent="MainMenu/MenuPanel/VBoxContainer"]
+[node name="Exit" type="Button" parent="MenuPanel/VBoxContainer"]
 margin_top = 180.0
 margin_right = 238.0
 margin_bottom = 236.0
@@ -119,18 +94,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HSeparator2" type="HSeparator" parent="MainMenu"]
-margin_top = 560.0
-margin_right = 1280.0
-margin_bottom = 720.0
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Options" parent="." instance=ExtResource( 5 )]
-visible = false
-[connection signal="pressed" from="MainMenu/MenuPanel/VBoxContainer/Play" to="." method="_on_Play_pressed"]
-[connection signal="pressed" from="MainMenu/MenuPanel/VBoxContainer/Options" to="." method="_on_Options_pressed"]
-[connection signal="pressed" from="MainMenu/MenuPanel/VBoxContainer/Wave Select" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MainMenu/MenuPanel/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
+bus = "Music"
+[connection signal="pressed" from="MenuPanel/VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="MenuPanel/VBoxContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="MenuPanel/VBoxContainer/Wave Select" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="MenuPanel/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]

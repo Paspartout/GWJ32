@@ -4,7 +4,7 @@ extends Node2D
 export(Array, PackedScene) var all_towers: Array
 
 # TODO: Other way to reference gui?
-onready var tower_menu: TowerMenu = get_tree().root.get_node("Game/HUD/TowerSelection")
+onready var tower_menu: TowerMenu = get_tree().root.get_node("Game/HUD/TowerMenu")
 onready var tower_button: Button = $BuildTowerButton
 onready var tower_click_area: Area2D = $TowerClickArea
 onready var built_tower: Node2D = $BuiltTower 

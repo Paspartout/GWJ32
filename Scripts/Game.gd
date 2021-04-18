@@ -27,6 +27,7 @@ onready var money_label: Label = $HUD/WaveStats/HBoxContainer/Money
 onready var tower_label: Label = $HUD/WaveStats/HBoxContainer/Towers
 onready var dialog_box: DialogBox = $HUD/DialogBox
 onready var sfx_player: AudioStreamPlayer = $SfxPlayer
+onready var tower_menu = $HUD/TowerMenu
 
 onready var world = get_node(world_path)
 onready var spawner = world.spawner

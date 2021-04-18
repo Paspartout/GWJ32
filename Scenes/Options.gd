@@ -1,6 +1,6 @@
 extends Control
 
-onready var main_menu = get_parent().get_node("MainMenu")
+onready var main_menu = get_parent().get_node("MenuPanel")
 
 const MASTER = 0
 const MUSIC = 1
@@ -21,6 +21,10 @@ onready var sound_slider = $SoundSettings/SoundSlider
 var master_volume: float
 var music_volume: float
 var sound_volume: float
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		_on_Back_pressed()
 
 func _ready():
 	visible = false

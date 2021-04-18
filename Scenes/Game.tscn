@@ -143,7 +143,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TowerSelection" parent="HUD" instance=ExtResource( 1 )]
+[node name="TowerMenu" parent="HUD" instance=ExtResource( 1 )]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -153,6 +153,8 @@ margin_left = -256.0
 margin_top = -150.0
 margin_right = 256.0
 margin_bottom = 150.0
+tower_buttons_path = NodePath("../TowerMenu/Layout/TowerSelection")
+tower_stats_path = NodePath("../TowerMenu/Layout/TowerStats")
 
 [node name="BottomPanel" type="PanelContainer" parent="HUD"]
 anchor_left = 0.5

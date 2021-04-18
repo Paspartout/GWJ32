@@ -1,7 +1,7 @@
 extends Control
 
 onready var options = $Options
-onready var main_menu = $MainMenu
+onready var main_menu = $MenuPanel
 
 func _on_Play_pressed() -> void:
 	get_tree().change_scene("res://Scenes/Game.tscn")

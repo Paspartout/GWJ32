@@ -17,6 +17,7 @@ margin_left = -46.0104
 margin_top = -26.7859
 margin_right = 52.9896
 margin_bottom = 29.2141
+focus_mode = 0
 theme = ExtResource( 4 )
 text = "Build"
 __meta__ = {
