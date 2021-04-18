@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/Enemies/EnemyBoss.tscn" type="PackedScene" id=1]
 
 [node name="EnemyBossFast" instance=ExtResource( 1 )]
-hp = 62
+hp = 70
 default_speed = 40
 
 [node name="Sprite" parent="." index="0"]

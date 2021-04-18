@@ -10,4 +10,4 @@ loot_money = 18
 
 [node name="Sprite" parent="." index="0"]
 frames = ExtResource( 2 )
-frame = 2
+frame = 0

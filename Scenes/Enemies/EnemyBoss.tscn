@@ -15,7 +15,6 @@ loot_money = 100
 position = Vector2( 0, 19 )
 scale = Vector2( 4, 4 )
 frames = ExtResource( 2 )
-frame = 5
 offset = Vector2( 0, -10 )
 
 [node name="EnemyCollision" parent="." index="1"]
