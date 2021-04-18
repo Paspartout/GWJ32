@@ -124,7 +124,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=26]
-radius = 26.6293
+radius = 25.5043
 
 [sub_resource type="Animation" id=27]
 length = 0.4
@@ -161,7 +161,7 @@ hp = 2
 scale = Vector2( 2, 2 )
 frames = SubResource( 25 )
 animation = "down"
-frame = 3
+frame = 1
 playing = true
 offset = Vector2( 0, -6 )
 
