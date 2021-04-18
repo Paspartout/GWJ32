@@ -4,7 +4,7 @@
 [ext_resource path="res://Images/enemies/enemies.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8.49498, 8.28777 )
+extents = Vector2( 16, 7.25351 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
@@ -17,9 +17,11 @@ script = ExtResource( 1 )
 speed = 1000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 0.982153 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
 texture = SubResource( 2 )
 
 [node name="LifeTimer" type="Timer" parent="."]
