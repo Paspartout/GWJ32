@@ -10,13 +10,13 @@ This is our game for the [Godot Wild Jam #32](https://itch.io/jam/godot-wild-jam
 Team and Licenses:
 ------------------
 
-- **Coding:** Paspartout + Drk - MIT License
-- **Art:** iDLELUK - CC BY
-- **Music:** fsnowdin - CC BY (Listen to the soundtrack on SoundCloud)
+- **Coding:** [Paspartout](https://paspartout.itch.io) + [Drk](https://drk66.itch.io) - MIT License
+- **Art:** [iDLELUK](https://idleluk.itch.io/) - CC BY
+- **Music:** [fsnowdin](https://fsnowdin.itch.io/) - CC BY (Listen to the soundtrack on [SoundCloud](https://soundcloud.com/falling_snowdin/sets/the-tower-forest))
 
 Other Attributions:
 -------------------
 
 - Art: Explosion CC0 from [Free Lunar Battle Pack](https://mattwalkden.itch.io/lunar-battle-pack) by MattWalkden
-- Sounds: Made with [sfxr.me]http://sfxr.me/) and [Woosh](https://freesound.org/people/qubodup/sounds/60013/) by qubodup from freesounds(CC0)
+- Sounds: Made with [sfxr.me](http://sfxr.me/) and [Woosh](https://freesound.org/people/qubodup/sounds/60013/) by qubodup from freesounds(CC0)
 - Font: [Equipment Pro from somepx](https://somepx.itch.io/humble-fonts-free)

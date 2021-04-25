@@ -1,5 +1,10 @@
 name: "godot-ci export"
-on: push
+on:
+  push:
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE'
+      - '.import'
 
 env:
   GODOT_VERSION: 3.3
