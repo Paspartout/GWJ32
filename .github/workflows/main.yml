@@ -2,15 +2,15 @@ name: "godot-ci export"
 on: push
 
 env:
-  GODOT_VERSION: 3.2.3
-  EXPORT_NAME: GWJ32
+  GODOT_VERSION: 3.3
+  EXPORT_NAME: the-tower-forst
 
 jobs:
   export-windows:
     name: Windows Export
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:3.2.3
+      image: barichello/godot-ci:3.3
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -42,7 +42,7 @@ jobs:
     name: Linux Export
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:3.2.3
+      image: barichello/godot-ci:3.3
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -74,7 +74,7 @@ jobs:
     name: Web Export
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:3.2.3
+      image: barichello/godot-ci:3.3
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -98,7 +98,7 @@ jobs:
         run: |
           apt-get update && apt-get install -y rsync
       - name: Deploy to GitHub Pages 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: JamesIves/github-pages-deploy-action@v4.1.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
@@ -116,7 +116,7 @@ jobs:
     name: Mac Export
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:3.2.3
+      image: barichello/godot-ci:3.3
     steps:
       - name: Checkout
         uses: actions/checkout@v2

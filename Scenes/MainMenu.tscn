@@ -91,6 +91,7 @@ visible = false
 stream = ExtResource( 1 )
 autoplay = true
 bus = "Music"
+
 [connection signal="pressed" from="MenuPanel/VBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="MenuPanel/VBoxContainer/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="MenuPanel/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
